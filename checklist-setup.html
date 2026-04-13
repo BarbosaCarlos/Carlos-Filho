@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Checklist de Setup · TPE</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  :root {
+    --green:      #023D36;
+    --green-mid:  #011f1a;
+    --green-dark: #010e0c;
+    --orange:     #F16722;
+    --cream:      #ECE1D6;
+    --sage:       #73A093;
+    --sage-dim:   #2a5048;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--green-dark);
+    color: var(--cream);
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--green);
+    border-bottom: 1px solid rgba(115,160,147,0.15);
+    padding: 40px 60px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: 'SETUP';
+    position: absolute;
+    right: -10px; bottom: -10px;
+    font-size: 160px;
+    font-weight: 900;
+    color: rgba(115,160,147,0.04);
+    letter-spacing: -6px;
+    pointer-events: none;
+  }
+  .header-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+  }
+  .header-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .header-title span { color: var(--orange); }
+  .header-sub {
+    font-size: 14px;
+    color: var(--sage);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 480px;
+  }
+  .progress-bar-bg {
+    flex: 1;
+    height: 6px;
+    background: rgba(115,160,147,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--orange);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--sage);
+    white-space: nowrap;
+    min-width: 80px;
+  }
+  .progress-pct {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--orange);
+    min-width: 48px;
+    text-align: right;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 0;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: rgba(241,103,34,0.07);
+    border: 1px solid rgba(241,103,34,0.18);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 40px;
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.8;
+  }
+  .intro-box strong { color: var(--cream); }
+
+  /* ── STEP ── */
+  .step {
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(115,160,147,0.1);
+    background: rgba(2,61,54,0.3);
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .step.done {
+    border-color: rgba(115,160,147,0.25);
+    background: rgba(2,61,54,0.15);
+  }
+  .step.done .step-title { color: var(--sage); }
+  .step.done .step-num-badge { background: var(--sage); }
+  .step.done .step-num-badge::after {
+    content: '✓';
+    font-size: 12px;
+    font-weight: 900;
+  }
+  .step.done .step-num-inner { display: none; }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .step-checkbox {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid rgba(115,160,147,0.3);
+    background: transparent;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .step-checkbox:hover { border-color: var(--orange); }
+  .step.done .step-checkbox {
+    background: var(--sage);
+    border-color: var(--sage);
+  }
+  .step.done .step-checkbox::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg) translateY(-1px);
+    display: block;
+  }
+
+  .step-num-badge {
+    width: 28px;
+    height: 28px;
+    background: rgba(241,103,34,0.15);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--orange);
+    transition: background 0.2s;
+  }
+
+  .step-info { flex: 1; }
+  .step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .step-subtitle {
+    font-size: 11px;
+    color: var(--sage-dim);
+    font-weight: 500;
+  }
+
+  .step-toggle {
+    font-size: 16px;
+    color: var(--sage-dim);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .step.open .step-toggle { transform: rotate(180deg); }
+
+  /* STEP BODY */
+  .step-body {
+    display: none;
+    padding: 0 20px 20px 86px;
+  }
+  .step.open .step-body { display: block; }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  /* TIPS */
+  .tips { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .tip {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--sage);
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .tip-icon {
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tip strong { color: var(--cream); }
+
+  /* ALERT */
+  .alert {
+    background: rgba(241,103,34,0.08);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--sage);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .alert strong { color: var(--orange); }
+
+  /* CHECK LIST */
+  .sub-checks { display: flex; flex-direction: column; gap: 6px; }
+  .sub-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--sage);
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .sub-check:hover { background: rgba(115,160,147,0.06); }
+  .sub-check input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--orange);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .sub-check.checked { color: var(--sage-dim); text-decoration: line-through; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage-dim);
+    margin: 36px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(115,160,147,0.08);
+  }
+
+  /* COMPLETE BOX */
+  .complete-box {
+    background: rgba(2,61,54,0.5);
+    border: 1px solid rgba(115,160,147,0.2);
+    border-radius: 12px;
+    padding: 28px 32px;
+    text-align: center;
+    margin-top: 40px;
+    display: none;
+  }
+  .complete-box.show { display: block; }
+  .complete-box .icon { font-size: 36px; margin-bottom: 12px; }
+  .complete-box .title {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .complete-box .sub {
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .header { padding: 28px 20px 24px; }
+    .header-title { font-size: 26px; }
+    .main { padding: 32px 16px 0; }
+    .step-body { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Módulo 01 · Tráfego para Empresários</div>
+  <div class="header-title">Checklist de <span>Setup Completo</span></div>
+  <div class="header-sub">Acompanhe este documento enquanto assiste à aula. Marque cada etapa conforme for concluindo — você pode ver o que já fez e o que ainda falta.</div>
+  <div class="progress-wrap">
+    <div class="progress-pct" id="pct">0%</div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="bar"></div>
+    </div>
+    <div class="progress-text" id="prog">0 de 15 etapas</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <div class="intro-box">
+    <strong>Como usar este material:</strong> Deixe este documento aberto enquanto assiste à aula. Clique no checkbox de cada etapa quando concluir. Clique no título para ver as dicas e detalhes daquela etapa. Seu progresso é salvo automaticamente.
+  </div>
+
+  <!-- BLOCO 1 — FACEBOOK E PÁGINA -->
+  <div class="section-label">Parte 1 — Facebook e Página</div>
+
+  <!-- PASSO 1 -->
+  <div class="step" id="s1">
+    <div class="step-header" onclick="toggleStep('s1')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s1')"></div>
+      <div class="step-num-badge">01</div>
+      <div class="step-info">
+        <div class="step-title">Criar conta pessoal no Facebook</div>
+        <div class="step-subtitle">Pré-requisito para tudo que vem a seguir</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Todo o processo de anúncios — mesmo que você vá anunciar só no Instagram — é feito pelo Facebook. Você precisa de uma conta pessoal ativa para criar páginas, Business Manager e campanhas.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">💡</div><div>Se você já tem uma conta no Facebook, pode pular esta etapa.</div></div>
+        <div class="tip"><div class="tip-icon">🌐</div><div>Para criar: acesse <strong>facebook.com</strong> e siga o processo de cadastro.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 2 -->
+  <div class="step" id="s2">
+    <div class="step-header" onclick="toggleStep('s2')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s2')"></div>
+      <div class="step-num-badge">02</div>
+      <div class="step-info">
+        <div class="step-title">Criar a Página do Facebook</div>
+        <div class="step-subtitle">Preencher o máximo de informações possíveis</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">A Página é o perfil comercial do seu negócio dentro do Facebook. Se você já tem uma página criada, utilize ela — não crie uma nova desnecessariamente.</div>
+      <div class="alert"><strong>Atenção:</strong> Quanto mais informações você preencher, maior a credibilidade da sua página junto à Meta. Isso reduz chances de bloqueio, especialmente em contas novas.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: Clique na sua foto de perfil → <strong>Ver todos os perfis</strong> → <strong>Criar uma nova Página</strong></div></div>
+        <div class="tip"><div class="tip-icon">📝</div><div>Preencha: nome do negócio, categoria, bio (pode usar a do seu Instagram), site (pode ser o link do seu Instagram), telefone, e-mail, horário de funcionamento.</div></div>
+        <div class="tip"><div class="tip-icon">🖼️</div><div>Adicione foto de perfil (logo) e foto de capa. Quanto mais completo, melhor a "integridade" da página no painel da Meta.</div></div>
+      </div>
+      <div class="sub-checks">
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> Nome e categoria preenchidos</label>
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> Bio, site e telefone preenchidos</label>
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> Horário de funcionamento adicionado</label>
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> Foto de perfil adicionada</label>
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> Foto de capa adicionada</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 3 -->
+  <div class="step" id="s3">
+    <div class="step-header" onclick="toggleStep('s3')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s3')"></div>
+      <div class="step-num-badge">03</div>
+      <div class="step-info">
+        <div class="step-title">Vincular o Instagram à Página</div>
+        <div class="step-subtitle">Dentro das configurações da Página</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Conectar o Instagram à sua Página do Facebook é necessário para que você possa veicular anúncios no Instagram através do Gerenciador de Anúncios.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: <strong>Configurações da Página</strong> → pesquise por <strong>Contas vinculadas</strong> → <strong>Instagram</strong> → Conectar conta</div></div>
+        <div class="tip"><div class="tip-icon">🔑</div><div>Você vai precisar fazer login na sua conta do Instagram durante o processo. Tenha a senha em mãos.</div></div>
+        <div class="tip"><div class="tip-icon">⚠️</div><div>Se aparecer um erro informando que o Instagram já está vinculado a outra página, acesse a outra página e desconecte antes de reconectar aqui.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 4 -->
+  <div class="step" id="s4">
+    <div class="step-header" onclick="toggleStep('s4')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s4')"></div>
+      <div class="step-num-badge">04</div>
+      <div class="step-info">
+        <div class="step-title">Vincular o WhatsApp Business à Página</div>
+        <div class="step-subtitle">Obrigatório ser WhatsApp Business, não o comum</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">O WhatsApp precisa ser o <strong>WhatsApp Business</strong>. Se você usar o WhatsApp comum, vai aparecer um erro na hora de publicar campanhas de mensagem.</div>
+      <div class="alert"><strong>Ainda está no WhatsApp comum?</strong> Faça o backup das conversas → baixe o WhatsApp Business na Play Store ou App Store → cadastre o mesmo número → todas as conversas serão restauradas automaticamente.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: <strong>Configurações da Página</strong> → <strong>Contas vinculadas</strong> → <strong>WhatsApp</strong> → informar número → código chega no WhatsApp</div></div>
+        <div class="tip"><div class="tip-icon">💬</div><div>O código de verificação chega diretamente no seu WhatsApp Business. Informe o código e a conexão estará feita.</div></div>
+        <div class="tip"><div class="tip-icon">⚠️</div><div>Se o seu número já estiver vinculado em outra página, desconecte de lá primeiro. É possível ter o mesmo WhatsApp em apenas uma página por vez.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 2 — BUSINESS MANAGER -->
+  <div class="section-label">Parte 2 — Business Manager (BM)</div>
+
+  <!-- PASSO 5 -->
+  <div class="step" id="s5">
+    <div class="step-header" onclick="toggleStep('s5')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s5')"></div>
+      <div class="step-num-badge">05</div>
+      <div class="step-info">
+        <div class="step-title">Criar ou confirmar o Business Manager</div>
+        <div class="step-subtitle">Geralmente criado automaticamente ao criar a Página</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">O Business Manager (também chamado de Portfólio Empresarial) é o centro de controle onde ficam todos os seus ativos: página, Instagram, WhatsApp e conta de anúncios.</div>
+      <div class="alert"><strong>Já tem um BM criado, mesmo que de outra empresa?</strong> Utilize esse BM. Portfólios mais antigos têm menos chances de bloqueio e restrição. Crie um novo apenas se realmente não tiver nenhum.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">🌐</div><div>Acesso rápido: abra uma nova aba e acesse <strong>facebook.com/adsmanager</strong> — salve essa URL nos favoritos, você vai usar muito.</div></div>
+        <div class="tip"><div class="tip-icon">🔄</div><div>Se você criou a Página seguindo os passos anteriores, o BM provavelmente já foi criado automaticamente.</div></div>
+        <div class="tip"><div class="tip-icon">➕</div><div>Para criar manualmente: no Gerenciador, vá em <strong>Portfólios Empresariais</strong> → <strong>Criar um portfólio</strong> → nome da empresa, seu nome e e-mail → confirmar código no e-mail.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 6 -->
+  <div class="step" id="s6">
+    <div class="step-header" onclick="toggleStep('s6')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s6')"></div>
+      <div class="step-num-badge">06</div>
+      <div class="step-info">
+        <div class="step-title">Organizar o nome e logo do BM</div>
+        <div class="step-subtitle">Organização que facilita a gestão futura</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Dê um nome claro ao seu BM e adicione a logo do negócio. Isso facilita a organização, especialmente se um dia você tiver mais de um portfólio.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: dentro do BM, vá em <strong>Configurações da empresa</strong> → <strong>Informações da empresa</strong> → <strong>Editar</strong></div></div>
+        <div class="tip"><div class="tip-icon">✏️</div><div>Coloque o nome do negócio (ex: "TPE — Tráfego para Empresários") e faça upload da logo.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 7 -->
+  <div class="step" id="s7">
+    <div class="step-header" onclick="toggleStep('s7')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s7')"></div>
+      <div class="step-num-badge">07</div>
+      <div class="step-info">
+        <div class="step-title">Ativar autenticação de dois fatores (2FA)</div>
+        <div class="step-subtitle">Proteção essencial da conta</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">O 2FA adiciona uma camada de segurança: para acessar a conta ou fazer alterações importantes, será solicitado um código via SMS, WhatsApp ou aplicativo autenticador. Isso protege contra invasões e hackers.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: <strong>Configurações da empresa</strong> → <strong>Segurança</strong> → <strong>Autenticação de dois fatores</strong></div></div>
+        <div class="tip"><div class="tip-icon">🔐</div><div>Recomendado: use um aplicativo autenticador (Google Authenticator ou Authy) para maior segurança.</div></div>
+        <div class="tip"><div class="tip-icon">⚠️</div><div>Não pule essa etapa. Contas sem 2FA são os principais alvos de invasão dentro da Meta.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 3 — ATIVOS NO BM -->
+  <div class="section-label">Parte 3 — Vincular ativos ao BM</div>
+
+  <!-- PASSO 8 -->
+  <div class="step" id="s8">
+    <div class="step-header" onclick="toggleStep('s8')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s8')"></div>
+      <div class="step-num-badge">08</div>
+      <div class="step-info">
+        <div class="step-title">Vincular a Página ao BM</div>
+        <div class="step-subtitle">Geralmente automático — confirmar que está vinculada</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Se você criou a Página seguindo o processo desta aula, ela já deve estar vinculada ao BM automaticamente. Confirme e, se não estiver, adicione manualmente.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: <strong>Configurações da empresa</strong> → <strong>Contas</strong> → <strong>Páginas</strong></div></div>
+        <div class="tip"><div class="tip-icon">➕</div><div>Para adicionar: clique em <strong>Adicionar</strong> → <strong>Adicionar uma página existente</strong> → informe o nome da página. Só funciona se você for proprietário dela.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 9 -->
+  <div class="step" id="s9">
+    <div class="step-header" onclick="toggleStep('s9')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s9')"></div>
+      <div class="step-num-badge">09</div>
+      <div class="step-info">
+        <div class="step-title">Vincular o Instagram ao BM</div>
+        <div class="step-subtitle">Confirmar login e configurações adicionais</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Mesmo que o Instagram já apareça no BM, pode ser necessário fazer login para liberar as configurações adicionais e garantir 100% de acesso.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: <strong>Contas</strong> → <strong>Contas do Instagram</strong> → fazer login se solicitado</div></div>
+        <div class="tip"><div class="tip-icon">➕</div><div>Para adicionar: clique em <strong>Adicionar</strong> → faça o processo de login com usuário e senha do Instagram.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 10 -->
+  <div class="step" id="s10">
+    <div class="step-header" onclick="toggleStep('s10')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s10')"></div>
+      <div class="step-num-badge">10</div>
+      <div class="step-info">
+        <div class="step-title">Vincular o WhatsApp ao BM</div>
+        <div class="step-subtitle">Confirmar número e receber código de verificação</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">O WhatsApp Business precisa estar vinculado ao BM para que as campanhas de mensagem funcionem corretamente.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: <strong>Contas</strong> → <strong>Contas do WhatsApp</strong> → <strong>Adicionar</strong> → <strong>Vincular uma conta existente</strong> → informar número</div></div>
+        <div class="tip"><div class="tip-icon">💬</div><div>Um código de verificação chega diretamente no seu WhatsApp Business. Informe o código para concluir.</div></div>
+        <div class="tip"><div class="tip-icon">⚠️</div><div>Se der erro de "número já vinculado em outra página", acesse aquela página, desconecte o WhatsApp e tente novamente aqui.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 4 — CONTA DE ANÚNCIOS -->
+  <div class="section-label">Parte 4 — Conta de anúncios</div>
+
+  <!-- PASSO 11 -->
+  <div class="step" id="s11">
+    <div class="step-header" onclick="toggleStep('s11')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s11')"></div>
+      <div class="step-num-badge">11</div>
+      <div class="step-info">
+        <div class="step-title">Criar a conta de anúncios dentro do BM</div>
+        <div class="step-subtitle">Use a conta do BM — não a conta pessoal</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Dentro do Gerenciador de Anúncios existe uma "conta pessoal" — ignore ela. Você vai criar e usar uma conta de anúncios vinculada ao seu Portfólio Empresarial (BM).</div>
+      <div class="alert"><strong>Importante:</strong> Nunca anuncie pela conta pessoal. Use sempre a conta criada dentro do BM. Isso garante mais segurança, controle e organização.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: <strong>Configurações da empresa</strong> → <strong>Contas</strong> → <strong>Contas de anúncios</strong> → <strong>Adicionar</strong> → <strong>Criar uma nova conta de anúncios</strong></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 12 -->
+  <div class="step" id="s12">
+    <div class="step-header" onclick="toggleStep('s12')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s12')"></div>
+      <div class="step-num-badge">12</div>
+      <div class="step-info">
+        <div class="step-title">Configurar método de pagamento</div>
+        <div class="step-subtitle">Cartão de crédito ou Pix</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Sem um método de pagamento configurado, não é possível publicar nenhum anúncio. Configure agora para não ter surpresas na hora de subir a primeira campanha.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: dentro da conta de anúncios → <strong>Cobranças e Pagamentos</strong> → <strong>Adicionar método de pagamento</strong></div></div>
+        <div class="tip"><div class="tip-icon">💳</div><div>Cartão de crédito é o método mais confiável e com menos interrupções. Pix também é aceito.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 13 -->
+  <div class="step" id="s13">
+    <div class="step-header" onclick="toggleStep('s13')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s13')"></div>
+      <div class="step-num-badge">13</div>
+      <div class="step-info">
+        <div class="step-title">Preencher informações fiscais</div>
+        <div class="step-subtitle">CPF ou CNPJ do responsável pela conta</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">A Meta exige informações fiscais para emitir notas e manter a conta em conformidade. Preencha com CPF (pessoa física) ou CNPJ (empresa).</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">📍</div><div>Caminho: <strong>Cobranças e Pagamentos</strong> → <strong>Informações fiscais</strong> → preencher dados</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 5 — FINALIZAÇÃO -->
+  <div class="section-label">Parte 5 — Revisão e finalização</div>
+
+  <!-- PASSO 14 -->
+  <div class="step" id="s14">
+    <div class="step-header" onclick="toggleStep('s14')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s14')"></div>
+      <div class="step-num-badge">14</div>
+      <div class="step-info">
+        <div class="step-title">Conferir permissões de todos os ativos no BM</div>
+        <div class="step-subtitle">Página, Instagram, WhatsApp e conta de anúncios</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Antes de subir a primeira campanha, confirme que todos os ativos estão corretamente vinculados ao BM e com as permissões adequadas.</div>
+      <div class="sub-checks">
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> Página visível em Contas → Páginas</label>
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> Instagram visível em Contas → Contas do Instagram</label>
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> WhatsApp visível em Contas → Contas do WhatsApp</label>
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> Conta de anúncios visível em Contas → Contas de anúncios</label>
+        <label class="sub-check"><input type="checkbox" onchange="subCheck(this)"> Pagamento configurado e ativo</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSO 15 -->
+  <div class="step" id="s15">
+    <div class="step-header" onclick="toggleStep('s15')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s15')"></div>
+      <div class="step-num-badge">15</div>
+      <div class="step-info">
+        <div class="step-title">Tudo pronto — hora de subir as campanhas</div>
+        <div class="step-subtitle">Avance para o Módulo 02</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Setup concluído. Sua conta está configurada, todos os ativos vinculados e o método de pagamento ativo. Agora é colocar em prática o que foi ensinado.</div>
+      <div class="tips">
+        <div class="tip"><div class="tip-icon">🚀</div><div>Acesse o <strong>Módulo 02</strong> e siga para a aula de criação da primeira campanha.</div></div>
+        <div class="tip"><div class="tip-icon">💡</div><div>Qualquer dúvida que surgir durante a prática, leve para a próxima aula ao vivo — é exatamente para isso que ela existe.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAIXA DE CONCLUSÃO -->
+  <div class="complete-box" id="completebox">
+    <div class="icon">🎉</div>
+    <div class="title">Setup concluído!</div>
+    <div class="sub">Todos os 15 passos foram marcados. Sua conta está configurada e pronta.<br>Avance para o Módulo 02 — Subindo sua primeira campanha.</div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+  const TOTAL = 15;
+
+  function updateProgress() {
+    let done = 0;
+    for (let i = 1; i <= TOTAL; i++) {
+      if (document.getElementById('s' + i).classList.contains('done')) done++;
+    }
+    const pct = Math.round((done / TOTAL) * 100);
+    document.getElementById('bar').style.width = pct + '%';
+    document.getElementById('pct').textContent = pct + '%';
+    document.getElementById('prog').textContent = done + ' de ' + TOTAL + ' etapas';
+    document.getElementById('completebox').classList.toggle('show', done === TOTAL);
+    // save
+    localStorage.setItem('tpe_setup', JSON.stringify(getState()));
+  }
+
+  function toggleStep(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+
+  function toggleCheck(e, id) {
+    e.stopPropagation();
+    const el = document.getElementById(id);
+    el.classList.toggle('done');
+    if (el.classList.contains('done') && !el.classList.contains('open')) {
+      // auto-close if done
+    }
+    updateProgress();
+  }
+
+  function subCheck(el) {
+    el.parentElement.classList.toggle('checked', el.checked);
+  }
+
+  function getState() {
+    const s = {};
+    for (let i = 1; i <= TOTAL; i++) {
+      s['s' + i] = document.getElementById('s' + i).classList.contains('done');
+    }
+    return s;
+  }
+
+  function loadState() {
+    try {
+      const s = JSON.parse(localStorage.getItem('tpe_setup') || '{}');
+      Object.keys(s).forEach(k => {
+        if (s[k] && document.getElementById(k)) {
+          document.getElementById(k).classList.add('done');
+        }
+      });
+      updateProgress();
+    } catch(e) {}
+  }
+
+  loadState();
+</script>
+
+</body>
+</html>
