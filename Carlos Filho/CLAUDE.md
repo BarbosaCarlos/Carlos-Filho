@@ -49,6 +49,12 @@ futuro contratado conseguiria executá-la seguindo o que foi documentado.
 > Quando uma tarefa envolver essas ferramentas, considere usá-las via
 > integração/MCP quando disponível, ou documente o passo manual com clareza.
 
+## 📚 Referências
+
+- **`empresa.md`** — dossiê da Campanhas ON (proposta, serviços, cliente ideal,
+  ofertas, diferenciais). Consulte-o sempre que a tarefa exigir conhecimento
+  sobre a empresa.
+
 ## 🤝 Como quero que você trabalhe
 
 - **Estilo:** respostas **diretas e objetivas**. Explicações mais longas são
