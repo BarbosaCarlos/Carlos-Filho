@@ -12,41 +12,56 @@
 ## Visão geral
 
 - **Nome:** Campanhas ON
-- **Segmento:** Agência de **tráfego pago** (marketing digital / gestão de anúncios)
-- **Foco principal:** negócios **locais**
-- **Expertise secundária:** infoprodutos (atuação mais leve)
+- **Fundação:** 2021 (iniciada apenas por Carlos Filho; depois entra a sócia Eliane)
+- **Segmento:** Agência **100% focada em tráfego pago**
+- **Foco principal (core):** **tráfego pago** para **negócios locais** em geral
+- **Clientes ativos:** 35 (jul/2026)
+- **Ticket médio:** R$ 1.700/mês
 - **Site / redes:** [PREENCHER]
 
 ## Proposta de valor
 
 <!-- Em 1–2 frases: qual o principal resultado que a empresa entrega ao cliente? -->
-[PREENCHER] — ex.: "Fazemos negócios locais lotarem a agenda com tráfego pago,
-sem o dono precisar entender de anúncios."
+Agência especialista em **tráfego pago** para negócios locais. Mais do que rodar
+anúncios, entrega um serviço **consultivo** — apoiando também nas áreas
+**comercial** e de **criação** — para que o cliente extraia resultado real do
+investimento em mídia.
+
+[PREENCHER] — se quiser, defina uma frase-síntese oficial (tagline/pitch).
 
 ## Serviços oferecidos
 
-<!-- Liste o que a empresa vende. Ex.: gestão de Google Ads, Meta Ads, etc. -->
-- Gestão de tráfego pago (negócios locais)
-- [PREENCHER] — demais serviços / entregáveis
+O **core** é tráfego pago. Outros serviços existem apenas como **diferencial /
+complemento**, não como oferta principal:
+
+- **Gestão de tráfego pago** — serviço principal (negócios locais).
+- **Consultoria embutida** — apoio consultivo nas áreas **comercial** e de
+  **criação**, dentro do serviço de tráfego.
+- **Implementação de CRM** — serviço **à parte** (diferencial).
+- [PREENCHER] — outros complementos, se houver.
 
 ## Cliente ideal (ICP)
 
-- **Perfil principal:** negócios **locais**
-- **Nichos que mais atende:** [PREENCHER] — ex.: clínicas, restaurantes, estética...
-- **Ticket / porte típico:** [PREENCHER]
+- **Perfil principal:** **negócios locais** em geral.
+- **Segmentos:** os mais diversos (não há nicho único).
+- **Ticket / porte típico:** ~R$ 1.700/mês (ticket médio atual).
 - **O que faz um cliente ser "bom" pra nós:** [PREENCHER]
 - **Sinais de cliente ruim / que evitamos:** [PREENCHER]
 
 ## Ofertas e precificação
 
 <!-- Pacotes, planos, valores, setup, fee mensal, etc. -->
-- [PREENCHER] — pacotes / planos
-- [PREENCHER] — faixas de preço / fee
+- **Ticket médio atual:** R$ 1.700/mês.
+- [PREENCHER] — pacotes / planos e faixas de preço.
+- [PREENCHER] — valor/condição do serviço à parte de implementação de CRM.
 
 ## Diferenciais
 
 <!-- Por que escolher a Campanhas ON e não um concorrente? -->
-- [PREENCHER]
+- **Especialização:** foco 100% em tráfego pago (não é agência "faz-tudo").
+- **Atuação consultiva** nas áreas comercial e de criação, além da mídia.
+- **Implementação de CRM** como serviço complementar.
+- [PREENCHER] — outros diferenciais.
 
 ## Concorrentes / referências de mercado
 
@@ -54,7 +69,9 @@ sem o dono precisar entender de anúncios."
 
 ## Time e estrutura
 
-- **Diretoria / Comercial:** Carlos Filho (Diretor / Gerente Comercial)
+- **Sócios / Diretoria:**
+  - **Carlos Filho** — Diretor / Gerente Comercial
+  - **Eliane** — Sócia
 - **Demais áreas:** [PREENCHER] — operação/tráfego, atendimento, etc.
 
 ## Ferramentas do dia a dia
@@ -72,3 +89,4 @@ sem o dono precisar entender de anúncios."
 ## Observações
 
 - _Documento iniciado em 2026-07-13. Atualizar conforme a empresa evolui._
+- **Marcos:** fundada em 2021 (solo) → entrada da sócia Eliane → 35 clientes ativos.
