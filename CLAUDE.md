@@ -68,7 +68,7 @@ futuro contratado conseguiria executá-la seguindo o que foi documentado.
 ## 🗂️ Estrutura (a evoluir)
 
 ```
-Carlos Filho/
+(raiz do repositório = meu workspace pessoal)
 ├── CLAUDE.md                     # Este arquivo — contexto raiz (papel + escopo)
 ├── empresa.md                    # Dossiê da Campanhas ON (referência)
 ├── GESTAO/                       # Chapéu de Diretor — decisões macro
