@@ -12,7 +12,7 @@
 ## Visão geral
 
 - **Nome:** Campanhas ON
-- **Fundação:** 2021 (iniciada apenas por Carlos Filho; depois entra a sócia Eliane)
+- **Fundação:** 2021 (iniciada apenas por Carlos Filho; depois entra a sócia Yanne)
 - **Segmento:** Agência **100% focada em tráfego pago**
 - **Foco principal (core):** **tráfego pago** para **negócios locais** em geral
 - **Clientes ativos:** 35 (jul/2026)
@@ -71,7 +71,7 @@ complemento**, não como oferta principal:
 
 - **Sócios / Diretoria:**
   - **Carlos Filho** — Diretor / Gerente Comercial
-  - **Eliane** — Sócia
+  - **Yanne** — Sócia
 - **Demais áreas:** [PREENCHER] — operação/tráfego, atendimento, etc.
 
 ## Ferramentas do dia a dia
