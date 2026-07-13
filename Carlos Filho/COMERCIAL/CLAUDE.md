@@ -28,7 +28,14 @@ um responsável comercial.
 ## 🛠️ Ferramenta principal
 
 - **Kommo** — CRM e funil comercial (fonte de verdade do pipeline).
+  - **Acesso:** API oficial (não há MCP oficial da Kommo).
+  - **Base da API:** `https://suportecampanhason.kommo.com/api/v4/`
+  - **Autenticação:** token de longa duração na variável de ambiente
+    `KOMMO_TOKEN` (nunca commitar o token; usar sempre a variável).
+  - **Rede:** o domínio `suportecampanhason.kommo.com` precisa estar liberado
+    no Network access do ambiente (nível Custom).
 - **ClickUp** — tarefas/processos relacionados.
+  - **Acesso:** MCP oficial (primeira parte), já conectado via conector.
 
 ## 🧭 Como me ajudar nesta área
 
