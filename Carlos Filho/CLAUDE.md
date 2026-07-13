@@ -69,13 +69,19 @@ futuro contratado conseguiria executá-la seguindo o que foi documentado.
 
 ```
 Carlos Filho/
-├── CLAUDE.md          # Este arquivo — contexto raiz (papel + escopo)
-└── (subpastas por cliente / serviço / rotina virão aqui)
+├── CLAUDE.md                     # Este arquivo — contexto raiz (papel + escopo)
+├── empresa.md                    # Dossiê da Campanhas ON (referência)
+├── GESTAO/                       # Chapéu de Diretor — decisões macro
+│   ├── CLAUDE.md
+│   └── AVALIACAO-DE-PROCESSOS/   # Delegar / automatizar / eliminar / manter
+│       └── CLAUDE.md
+└── COMERCIAL/                    # Chapéu de Gerente Comercial — funil e vendas
+    └── CLAUDE.md
 ```
 
-<!-- Conforme criarmos as subpastas (ex.: COMERCIAL/, ONBOARDING/,
-     CONTRATACAO/), cada uma ganha seu próprio CLAUDE.md especializando
-     este contexto. -->
+> Cada área é um "chapéu" diferente e são **irmãs** entre si (nenhuma acima da
+> outra). A operação de tráfego (Google/Meta Ads) é do gestor de tráfego e não
+> fica nesta pasta pessoal.
 
 ## 📝 Anotações
 
