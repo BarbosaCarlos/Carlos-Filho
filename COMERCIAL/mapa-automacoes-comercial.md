@@ -21,8 +21,10 @@
   rodar o smoke test com 3 leads inbound.
 - **Auditoria do funil (Etapa 0):** feita — 2 pipelines, 14 etapas, bots
   inventariados. Respostas em `ATENDIMENTO-INICIAL/CLAUDE.md`.
-- **Decisão (14/07):** separar a base **TPE** (outbound) do funil principal para
-  não inflar o pipeline nem distorcer a qualificação.
+- **Feito (14/07):** base **TPE** (outbound) **movida** do funil principal para
+  um funil separado **"TPE (Outbound) — arquivo"** (161 leads) — funil principal
+  caiu de 839 → 678 ativos. Backup dos leads guardado. O TPE segue sendo tocado
+  no CRM em Excel; some do pipeline principal sem perder nada.
 
 ---
 

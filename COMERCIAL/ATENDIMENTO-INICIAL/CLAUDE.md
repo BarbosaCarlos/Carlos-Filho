@@ -50,7 +50,8 @@ perguntas que estavam em aberto:
 2. **Outbound TPE (à parte):** base do TPE trabalhada por **transmissão/cold
    call** (bot próprio). Foi **importada em lote** (122 leads em ~2 min no 22/05).
    Vive em CRM separado (Excel) — **fora do escopo** da automação inbound.
-   → Decisão (14/07): separar o TPE do funil principal.
+   → **Feito (14/07):** os 161 leads TPE foram **movidos** para o funil
+   "TPE (Outbound) — arquivo". O funil principal ficou só com inbound + histórico.
 
 ### Inventário de bots (Kommo, via `GET /api/v4/bots`)
 
