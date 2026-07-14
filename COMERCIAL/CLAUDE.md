@@ -25,6 +25,23 @@ um responsável comercial.
 - Decisões macro de estrutura/diretoria → vão em `../GESTAO/`.
 - Operação/entrega de tráfego → é do gestor de tráfego.
 
+## 📌 Situação atual do comercial (jul/2026)
+
+- **Quem toca:** Carlos, **sozinho**. Havia um **SDR**, que pediu demissão —
+  desde então o comercial voltou a sobrecarregar o Carlos.
+- **Dor nº 1:** **gestão de tempo**. Há muitos leads e oportunidades sendo
+  desperdiçadas porque o Carlos está dividido entre comercial, gestão da empresa
+  e (ainda) head de tráfego. Este é o principal alvo de automação/delegação.
+- **Objetivo:** padronizar e automatizar o comercial para **delegar/contratar**
+  e liberar o Carlos.
+
+## 📥 Origem dos leads (ver detalhes em `../empresa.md`)
+
+- **TPE** — curso próprio (~1.000 alunos); ações de conversão sobre a base.
+- **Indicações** — de clientes e parceiros.
+- **Social selling** — sobre quem curte/segue o perfil @campanhason.
+  (Prospecção "Sniper" pura não é mais feita.)
+
 ## 🛠️ Ferramenta principal
 
 - **Kommo** — CRM e funil comercial (fonte de verdade do pipeline).
@@ -34,8 +51,12 @@ um responsável comercial.
     `KOMMO_TOKEN` (nunca commitar o token; usar sempre a variável).
   - **Rede:** o domínio `suportecampanhason.kommo.com` precisa estar liberado
     no Network access do ambiente (nível Custom).
-- **ClickUp** — tarefas/processos relacionados.
+- **ClickUp** — ferramenta de **processos internos** (onboarding, operação,
+  churn), **não** do funil de vendas.
   - **Acesso:** MCP oficial (primeira parte), já conectado via conector.
+  - **Nota:** o Carlos passou a usar o ClickUp no comercial como **paliativo**
+    após a saída do SDR. É temporário e **não** é o arranjo ideal — o funil de
+    vendas deve viver no **Kommo**.
 
 ## 🧭 Como me ajudar nesta área
 
