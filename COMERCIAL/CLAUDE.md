@@ -37,7 +37,7 @@ um responsável comercial.
 
 ## 📥 Origem dos leads (ver detalhes em `../empresa.md`)
 
-- **TPE** — curso próprio (~1.000 alunos); ações de conversão sobre a base.
+- **TPE** — curso próprio (~2.000 alunos); **cold call** sobre a base (canal forte).
 - **Indicações** — de clientes e parceiros.
 - **Social selling** — sobre quem curte/segue o perfil @campanhason.
   (Prospecção "Sniper" pura não é mais feita.)

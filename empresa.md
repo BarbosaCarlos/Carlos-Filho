@@ -16,8 +16,9 @@
 - **Segmento:** Agência **100% focada em tráfego pago**
 - **Foco principal (core):** **tráfego pago** para **negócios locais** em geral
 - **Clientes ativos:** 35 (jul/2026)
-- **Ticket médio:** R$ 1.700/mês (honorários atuais partem de R$ 2.000 — ver
-  "Ofertas e precificação"; ticket médio pode refletir contratos mais antigos)
+- **Ticket médio:** R$ 1.680/mês — puxado para baixo por **contratos antigos**.
+  Como os honorários novos partem de R$ 2.000, a **tendência é o ticket subir**
+  nos próximos meses.
 - **Instagram:** https://www.instagram.com/campanhason/
 
 ## Proposta de valor
@@ -74,8 +75,8 @@ complemento**, não como oferta principal:
 ## Ofertas e precificação
 
 - **Gestão de tráfego (honorários):** a partir de **R$ 2.000/mês**.
-- **Ticket médio atual:** R$ 1.700/mês. [CONFIRMAR] — está abaixo do piso de
-  R$ 2.000; provavelmente reflete contratos antigos. Vale alinhar o número.
+- **Ticket médio atual:** R$ 1.680/mês (abaixo do piso por causa de contratos
+  antigos; tendência de alta conforme entram contratos novos a partir de R$ 2.000).
 - **Implementação de CRM:** **R$ 5.000** (valor atual), com **manutenção
   opcional de ~R$ 799/mês** (o cliente **não é obrigado** a fechar a manutenção).
 
@@ -93,8 +94,8 @@ complemento**, não como oferta principal:
 ## Canais de aquisição (origem dos leads)
 
 - **TPE (Tráfego Para Empresários)** — curso próprio de tráfego para
-  empresários, com ~1.000 alunos. A agência faz ações de conversão sobre essa
-  base e converte bastante cliente. [CONFIRMAR] — formato exato dessas ações.
+  empresários, chegando a **~2.000 alunos**. A agência faz **cold call (ligação
+  fria)** sobre essa base e converte bastante cliente. É um canal forte.
 - **Indicações** — de clientes e de parceiros.
 - **Social selling** — abordagem sobre quem **curte ou passa a seguir** o perfil
   (@campanhason). (A "Prospecção Sniper" pura **não** é mais feita.)
