@@ -19,8 +19,8 @@ Carlos-Filho/                                (raiz = workspace pessoal do Carlos
 │   ├── CLAUDE.md                            # contexto da área comercial
 │   ├── mapa-automacoes-comercial.md         # plano-mestre: automação por etapas
 │   │
-│   ├── RECEBIMENTO/                         # topo do funil: entrada + bot atende
-│   │   └── CLAUDE.md                        #   as-is + furos + perguntas em aberto
+│   ├── ATENDIMENTO-INICIAL/                 # topo do funil: entrada + bot atende
+│   │   └── CLAUDE.md                        #   as-is + auditoria Kommo + bots
 │   │
 │   └── QUALIFICACAO/                        # Etapa 1 (em teste) — qualificação automática
 │       ├── CLAUDE.md                        #   visão geral da etapa
@@ -44,5 +44,5 @@ Carlos-Filho/                                (raiz = workspace pessoal do Carlos
 
 ## Legenda de status (comercial)
 
-- **RECEBIMENTO/** — revisado; auditado na Kommo (14/07). Bot de entrada ativo.
+- **ATENDIMENTO-INICIAL/** — revisado; auditado na Kommo (14/07). Bot de entrada ativo.
 - **QUALIFICACAO/** — 🔄 em teste; campos reais mapeados, smoke test inbound pendente.
