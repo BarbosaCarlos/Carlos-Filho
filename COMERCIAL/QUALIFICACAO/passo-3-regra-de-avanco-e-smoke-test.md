@@ -34,12 +34,22 @@
 > Regra prática: **na dúvida, classifica como Nutrir** (não descarta cedo demais
 > nem manda lead cru para a reunião do Carlos).
 
+## Escopo (definido na auditoria de 14/07)
+
+- **Só leads INBOUND** — os que **chegam** ao Carlos (WhatsApp/tráfego/bio),
+  atendidos pelo bot **[BOT] Boas-vindas Campanhas ON**.
+- **NÃO** rodar sobre a base **TPE** (outbound / cold call — bot
+  `[BOT] Abordagem TPE`). O TPE tem abordagem própria e vive em outro CRM; a
+  régua de qualificação aqui não se aplica a ele.
+
 ## Smoke test (rodar na sessão com KOMMO_TOKEN)
 
 **Meta:** provar que o bot qualifica e classifica sozinho, sem o Carlos.
 
-1. **Preparar:** criar os campos (passo 2) e o roteiro (passo 1) no Sales Bot.
-2. **Rodar 3 leads-teste** (ou usar 3 leads reais recentes), cobrindo os casos:
+1. **Preparar:** criar/ajustar os 4 campos do passo 2 (Verba de mídia, É o
+   decisor, Classificação, Urgência→lista) e mapear o roteiro (passo 1) no
+   **[BOT] Boas-vindas**.
+2. **Rodar 3 leads inbound** (teste ou reais recentes — nunca TPE), cobrindo:
    um claramente Apto, um Nutrir (sem verba), um Descartar.
 3. **Conferir (via API):** para cada lead, checar se:
    - os campos foram preenchidos com as respostas;

@@ -43,4 +43,6 @@ agendamento de reunião. Quem não passa vai para `Nutrição` ou `Descartado`.
 
 ## ✅ Status
 
-🔄 Em construção / a testar (smoke test pendente na sessão com Kommo).
+🔄 Em teste. Auditoria da Kommo feita (14/07): campos reais mapeados no passo 2,
+escopo do smoke test fechado (**só inbound**, bot [BOT] Boas-vindas; TPE fora).
+Falta: criar/ajustar os 4 campos e rodar o smoke test com 3 leads inbound.
