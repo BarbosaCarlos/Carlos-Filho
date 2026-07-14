@@ -77,8 +77,13 @@ um responsável comercial.
 ```
 COMERCIAL/
 ├── CLAUDE.md
-└── mapa-automacoes-comercial.md
+├── mapa-automacoes-comercial.md          # visão geral (índice das automações)
+└── QUALIFICACAO/                         # processo (Etapa 1) — em teste
+    ├── CLAUDE.md
+    ├── passo-1-roteiro-qualificacao.md
+    ├── passo-2-campos-no-kommo.md
+    └── passo-3-regra-de-avanco-e-smoke-test.md
 ```
 
-<!-- Conforme cada etapa de automação for implementada, ela pode virar sua
-     própria subpasta com passo a passo (ex.: QUALIFICACAO/, FOLLOWUP/). -->
+<!-- Cada etapa de automação vira uma subpasta com passo a passo, como
+     QUALIFICACAO/. Próximas prováveis: FOLLOWUP/, AGENDAMENTO/. -->

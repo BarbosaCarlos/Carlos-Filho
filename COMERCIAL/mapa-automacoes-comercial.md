@@ -60,8 +60,10 @@ Base de tudo. Sem etapas bem definidas, as automações quebram.
 - **Smoke test:** pegar ~3 leads reais recentes e encaixá-los nas etapas novas;
   se todos couberem sem gambiarra, a base está boa.
 
-### Etapa 1 — Qualificação automática ⬜  *(maior ganho de tempo)*
+### Etapa 1 — Qualificação automática 🔄  *(maior ganho de tempo)*
 Tira do Carlos o reforço manual de qualificação.
+> Detalhada em `QUALIFICACAO/` (roteiro, campos e smoke test). Smoke test
+> pendente na sessão com Kommo.
 - **1.1** Escrever o **roteiro de qualificação** (as perguntas que o Carlos faz
   hoje), ancorado no ICP (`../empresa.md`): capacidade de investimento,
   segmento, produz conteúdo / tem social media, expectativa, etc.
