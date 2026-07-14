@@ -66,12 +66,19 @@ um responsável comercial.
   que outra pessoa consiga executar (visando delegar/contratar).
 - Respostas diretas; aprofunde em decisões relevantes.
 
+## 📚 Documentos desta área
+
+- **`mapa-automacoes-comercial.md`** — processo atual (as-is) + roadmap de
+  automações **por etapas**, com smoke test em cada bloco. É o plano-mestre para
+  automatizar o comercial aos poucos.
+
 ## 🗂️ Estrutura (a evoluir)
 
 ```
 COMERCIAL/
-└── CLAUDE.md
+├── CLAUDE.md
+└── mapa-automacoes-comercial.md
 ```
 
-<!-- Sugestões de subpastas futuras: ONBOARDING/ (processo de entrada de cliente),
-     FUNIL/ (etapas e scripts), CONTRATACAO-COMERCIAL/ (montar o cargo). -->
+<!-- Conforme cada etapa de automação for implementada, ela pode virar sua
+     própria subpasta com passo a passo (ex.: QUALIFICACAO/, FOLLOWUP/). -->
