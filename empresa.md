@@ -89,4 +89,4 @@ complemento**, não como oferta principal:
 ## Observações
 
 - _Documento iniciado em 2026-07-13. Atualizar conforme a empresa evolui._
-- **Marcos:** fundada em 2021 (solo) → entrada da sócia Eliane → 35 clientes ativos.
+- **Marcos:** fundada em 2021 (solo) → entrada da sócia Yanne → 35 clientes ativos.
