@@ -10,6 +10,20 @@
 
 ---
 
+## 0. Onde paramos (última atualização: 2026-07-14)
+
+- **Base da empresa** documentada (`../empresa.md`) e áreas criadas.
+- **Recebimento de leads** revisado — ver `RECEBIMENTO/CLAUDE.md` (as-is +
+  furos + perguntas em aberto).
+- **Etapa 1 (Qualificação)** desenhada em `QUALIFICACAO/` (roteiro, campos,
+  smoke test) — falta **validar o roteiro** com o Carlos e **rodar o smoke test**
+  na sessão com Kommo.
+- **Próximo passo:** na sessão com `KOMMO_TOKEN`, auditar o funil real
+  (pipelines, campos, origem dos leads) para responder as perguntas em aberto de
+  `RECEBIMENTO/` e ancorar a Etapa 0 do plano.
+
+---
+
 ## 1. Processo atual (as-is) — jul/2026
 
 1. **Entrada do lead:** vem do **tráfego** ou do **link da bio** do Instagram e
