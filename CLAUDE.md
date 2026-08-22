@@ -83,6 +83,12 @@ futuro contratado conseguiria executá-la seguindo o que foi documentado.
 > outra). A operação de tráfego (Google/Meta Ads) é do gestor de tráfego e não
 > fica nesta pasta pessoal.
 
+> **Como ver a estrutura atualizada:** o jeito mais fácil é **pedir ao Claude**
+> ("mostre a estrutura de pastas e arquivos") — funciona em qualquer sessão. Para
+> navegar visualmente, abra o repositório no GitHub (pastas primeiro, depois
+> arquivos). Evite o painel **Diff** para isso: ele mostra só as mudanças da
+> branch, não a árvore completa.
+
 ## 📝 Anotações
 
 - _Documentação iniciada em 2026-07-13._
