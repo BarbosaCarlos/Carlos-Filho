@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Checklist Top 1 no Google · Campanhas ON</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  :root {
+    --green:      #023D36;
+    --green-mid:  #011f1a;
+    --green-dark: #010e0c;
+    --orange:     #F16722;
+    --cream:      #ECE1D6;
+    --sage:       #73A093;
+    --sage-dim:   #2a5048;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--green-dark);
+    color: var(--cream);
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--green);
+    border-bottom: 1px solid rgba(115,160,147,0.15);
+    padding: 40px 60px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: 'GOOGLE';
+    position: absolute;
+    right: -10px; bottom: -10px;
+    font-size: 160px;
+    font-weight: 900;
+    color: rgba(115,160,147,0.04);
+    letter-spacing: -6px;
+    pointer-events: none;
+  }
+  .header-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+  }
+  .header-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .header-title span { color: var(--orange); }
+  .header-sub {
+    font-size: 14px;
+    color: var(--sage);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 480px;
+  }
+  .progress-bar-bg {
+    flex: 1;
+    height: 6px;
+    background: rgba(115,160,147,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--orange);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--sage);
+    white-space: nowrap;
+    min-width: 80px;
+  }
+  .progress-pct {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--orange);
+    min-width: 48px;
+    text-align: right;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 0;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: rgba(241,103,34,0.07);
+    border: 1px solid rgba(241,103,34,0.18);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 40px;
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.8;
+  }
+  .intro-box strong { color: var(--cream); }
+
+  /* ── STEP ── */
+  .step {
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(115,160,147,0.1);
+    background: rgba(2,61,54,0.3);
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .step.done {
+    border-color: rgba(115,160,147,0.25);
+    background: rgba(2,61,54,0.15);
+  }
+  .step.done .step-title { color: var(--sage); }
+  .step.done .step-num-badge { background: var(--sage); }
+  .step.done .step-num-badge::after {
+    content: '✓';
+    font-size: 12px;
+    font-weight: 900;
+  }
+  .step.done .step-num-inner { display: none; }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .step-checkbox {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid rgba(115,160,147,0.3);
+    background: transparent;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .step-checkbox:hover { border-color: var(--orange); }
+  .step.done .step-checkbox {
+    background: var(--sage);
+    border-color: var(--sage);
+  }
+  .step.done .step-checkbox::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg) translateY(-1px);
+    display: block;
+  }
+
+  .step-num-badge {
+    width: 28px;
+    height: 28px;
+    background: rgba(241,103,34,0.15);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--orange);
+    transition: background 0.2s;
+  }
+
+  .step-info { flex: 1; }
+  .step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .step-subtitle {
+    font-size: 11px;
+    color: var(--sage-dim);
+    font-weight: 500;
+  }
+
+  .step-toggle {
+    font-size: 16px;
+    color: var(--sage-dim);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .step.open .step-toggle { transform: rotate(180deg); }
+
+  /* STEP BODY */
+  .step-body {
+    display: none;
+    padding: 0 20px 20px 86px;
+  }
+  .step.open .step-body { display: block; }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  /* TIPS */
+  .tips { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .tip {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--sage);
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .tip-icon {
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tip strong { color: var(--cream); }
+
+  /* ALERT */
+  .alert {
+    background: rgba(241,103,34,0.08);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--sage);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .alert strong { color: var(--orange); }
+
+  /* CHECK LIST */
+  .sub-checks { display: flex; flex-direction: column; gap: 6px; }
+  .sub-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--sage);
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .sub-check:hover { background: rgba(115,160,147,0.06); }
+  .sub-check input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--orange);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .sub-check.checked { color: var(--sage-dim); text-decoration: line-through; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage-dim);
+    margin: 36px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(115,160,147,0.08);
+  }
+
+  /* COMPLETE BOX */
+  .complete-box {
+    background: rgba(2,61,54,0.5);
+    border: 1px solid rgba(115,160,147,0.2);
+    border-radius: 12px;
+    padding: 28px 32px;
+    text-align: center;
+    margin-top: 40px;
+    display: none;
+  }
+  .complete-box.show { display: block; }
+  .complete-box .icon { font-size: 36px; margin-bottom: 12px; }
+  .complete-box .title {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .complete-box .sub {
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .header { padding: 28px 20px 24px; }
+    .header-title { font-size: 26px; }
+    .main { padding: 32px 16px 0; }
+    .step-body { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Top 1 no Google Meu Negócio</div>
+  <div class="header-title">Checklist do <span>Google Meu Negócio</span></div>
+  <div class="header-sub">Acompanhe este documento enquanto assiste à aula. Marque cada etapa conforme for concluindo. Seu progresso fica salvo neste navegador.</div>
+  <div class="progress-wrap">
+    <div class="progress-pct" id="pct">0%</div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="bar"></div></div>
+    <div class="progress-text" id="prog">0 de 16 etapas</div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="intro-box"><strong>Como usar este material:</strong> Deixe este documento aberto enquanto assiste à aula. Clique no quadrado de cada etapa quando concluir e no título para abrir as dicas. Seu progresso é salvo automaticamente.</div>
+
+  <div class="section-label">Parte 1 — Colocando o perfil no ar do jeito certo</div>
+
+  <div class="step" id="s1">
+    <div class="step-header" onclick="toggleStep('s1')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s1')"></div>
+      <div class="step-num-badge">01</div>
+      <div class="step-info">
+        <div class="step-title">Criar ou reivindicar o perfil</div>
+        <div class="step-subtitle">Google Meu Negócio / Perfil da Empresa</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Entre em google.com/business com o e-mail que vai ser o dono do perfil. Se o seu negócio já aparece no Maps sem você ter criado, ele já existe: nesse caso você reivindica em vez de criar um novo.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">⚠️</div><div>Nunca crie um perfil novo se já existe um. Dois perfis do mesmo negócio brigam entre si e os dois perdem posição.</div></div><div class="tip"><div class="tip-icon">📧</div><div>Use um e-mail da empresa, não o pessoal de um funcionário. Se a pessoa sai, o perfil vai junto.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s2">
+    <div class="step-header" onclick="toggleStep('s2')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s2')"></div>
+      <div class="step-num-badge">02</div>
+      <div class="step-info">
+        <div class="step-title">Fazer a verificação</div>
+        <div class="step-subtitle">Vídeo, cartão, telefone ou e-mail</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Sem verificar, o perfil não aparece no mapa. O Google escolhe o método: pode ser gravação de vídeo do local, cartão pelo correio, telefone ou e-mail.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">🎥</div><div>Na verificação por vídeo, grave a fachada com o número visível, a entrada, o interior e algo que prove que você opera ali (equipamento, estoque, caixa).</div></div><div class="tip"><div class="tip-icon">⏳</div><div>Cartão pelo correio pode levar até 14 dias. Não crie um perfil novo enquanto espera.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s3">
+    <div class="step-header" onclick="toggleStep('s3')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s3')"></div>
+      <div class="step-num-badge">03</div>
+      <div class="step-info">
+        <div class="step-title">Definir a categoria principal</div>
+        <div class="step-subtitle">O campo que mais pesa no ranking</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">A categoria principal diz ao Google em quais buscas você pode aparecer. Escolha a que descreve exatamente o que você faz, não a mais genérica.</div>
+      <div class="alert"><strong>Atenção:</strong> Trocar a categoria principal depois reinicia parte do seu histórico de posicionamento. Pesquise antes de salvar: veja qual categoria os três primeiros colocados da sua cidade usam.</div>
+      
+    </div>
+  </div>
+  <div class="step" id="s4">
+    <div class="step-header" onclick="toggleStep('s4')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s4')"></div>
+      <div class="step-num-badge">04</div>
+      <div class="step-info">
+        <div class="step-title">Adicionar as categorias secundárias</div>
+        <div class="step-subtitle">Todos os outros serviços que você presta</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">As secundárias ampliam o número de buscas em que você aparece sem diluir a principal. Adicione todas as que realmente se aplicam.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">🚫</div><div>Não adicione categoria de serviço que você não presta. O Google penaliza e o cliente reclama.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s5">
+    <div class="step-header" onclick="toggleStep('s5')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s5')"></div>
+      <div class="step-num-badge">05</div>
+      <div class="step-info">
+        <div class="step-title">Preencher nome, endereço e telefone</div>
+        <div class="step-subtitle">O trio NAP, idêntico em todo lugar</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Nome, endereço e telefone precisam estar escritos exatamente iguais no perfil, no site, nas redes e em qualquer diretório onde o negócio apareça. O Google cruza essas informações para confirmar que o negócio é real.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">📝</div><div>No nome, use o nome real do negócio. Enfiar palavra-chave no nome é a infração mais comum e derruba o perfil.</div></div><div class="tip"><div class="tip-icon">🔁</div><div>Se você mudou de endereço ou telefone, corrija em todos os lugares no mesmo dia.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s6">
+    <div class="step-header" onclick="toggleStep('s6')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s6')"></div>
+      <div class="step-num-badge">06</div>
+      <div class="step-info">
+        <div class="step-title">Configurar área de atendimento e horário</div>
+        <div class="step-subtitle">Inclusive feriado</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Se você atende no endereço, deixe o endereço visível. Se você vai até o cliente, configure a área de atendimento. Preencha o horário de todos os dias e cadastre os feriados.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">📅</div><div>Horário errado em feriado gera avaliação de 1 estrela de quem foi até lá e encontrou fechado.</div></div></div>
+    </div>
+  </div>
+  <div class="section-label">Parte 2 — Subindo no ranking do mapa</div>
+
+  <div class="step" id="s7">
+    <div class="step-header" onclick="toggleStep('s7')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s7')"></div>
+      <div class="step-num-badge">07</div>
+      <div class="step-info">
+        <div class="step-title">Escrever a descrição do negócio</div>
+        <div class="step-subtitle">750 caracteres que o cliente lê</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Diga o que você faz, para quem, em qual cidade e o que te diferencia. Escreva para o cliente, com as palavras que ele usaria na busca.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">✍️</div><div>Primeira linha é a que mais aparece. Comece com o serviço e a cidade.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s8">
+    <div class="step-header" onclick="toggleStep('s8')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s8')"></div>
+      <div class="step-num-badge">08</div>
+      <div class="step-info">
+        <div class="step-title">Cadastrar serviços e produtos</div>
+        <div class="step-subtitle">Cada serviço vira uma entrada</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Liste serviço por serviço, com nome, descrição e preço quando fizer sentido. Cada item cadastrado é mais uma chance de o perfil casar com a busca do cliente.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">💰</div><div>Se você não quer publicar preço, deixe o campo vazio e descreva o serviço. Não invente um valor de fachada.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s9">
+    <div class="step-header" onclick="toggleStep('s9')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s9')"></div>
+      <div class="step-num-badge">09</div>
+      <div class="step-info">
+        <div class="step-title">Subir as fotos</div>
+        <div class="step-subtitle">Fachada, interior, equipe e trabalho feito</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Perfil com foto recebe muito mais clique que perfil sem. Suba fotos reais, bem iluminadas, tiradas no seu negócio.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">📸</div><div>Mínimo: fachada com o número, interior, equipe e pelo menos 5 do trabalho entregue.</div></div><div class="tip"><div class="tip-icon">🚫</div><div>Nada de banco de imagens. O cliente percebe e o Google também.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s10">
+    <div class="step-header" onclick="toggleStep('s10')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s10')"></div>
+      <div class="step-num-badge">10</div>
+      <div class="step-info">
+        <div class="step-title">Definir a rotina semanal de publicação</div>
+        <div class="step-subtitle">O que mantém o perfil vivo</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Publique toda semana no perfil: novidade, serviço, promoção ou bastidor. Perfil parado perde posição para perfil ativo da mesma categoria.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">🗓️</div><div>Escolha um dia fixo da semana e trate como compromisso. Uma publicação por semana já segura o perfil.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s11">
+    <div class="step-header" onclick="toggleStep('s11')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s11')"></div>
+      <div class="step-num-badge">11</div>
+      <div class="step-info">
+        <div class="step-title">Conferir se o perfil está livre de infração</div>
+        <div class="step-subtitle">O que derruba sem aviso</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Palavra-chave no nome, endereço falso, categoria que não corresponde e avaliação comprada são os quatro motivos mais comuns de suspensão.</div>
+      <div class="alert"><strong>Atenção:</strong> Se o perfil já foi suspenso, corrija a infração ANTES de pedir reativação. Pedir sem corrigir queima a chance de recurso.</div>
+      
+    </div>
+  </div>
+  <div class="section-label">Parte 3 — Transformando visualização em cliente</div>
+
+  <div class="step" id="s12">
+    <div class="step-header" onclick="toggleStep('s12')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s12')"></div>
+      <div class="step-num-badge">12</div>
+      <div class="step-info">
+        <div class="step-title">Montar o pedido de avaliação</div>
+        <div class="step-subtitle">Sem constranger o cliente</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Peça no momento em que o cliente está satisfeito, logo após a entrega. Mande o link direto de avaliação, não peça para ele procurar você no Google.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">🔗</div><div>Pegue o link curto em Perfil da Empresa > Pedir avaliações. Salve como mensagem rápida no WhatsApp.</div></div><div class="tip"><div class="tip-icon">💬</div><div>Modelo: "Que bom que deu certo! Se puder deixar sua avaliação aqui, ajuda demais outras pessoas a encontrarem a gente: [link]"</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s13">
+    <div class="step-header" onclick="toggleStep('s13')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s13')"></div>
+      <div class="step-num-badge">13</div>
+      <div class="step-info">
+        <div class="step-title">Responder todas as avaliações</div>
+        <div class="step-subtitle">As boas e principalmente as ruins</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Responder mostra ao Google que o perfil é ativo e mostra ao próximo cliente como você trata as pessoas. Quem lê avaliação ruim está lendo a sua resposta, não a reclamação.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">👍</div><div>Boa: agradeça pelo nome e cite o serviço prestado.</div></div><div class="tip"><div class="tip-icon">👎</div><div>Ruim: reconheça, não discuta, ofereça resolver fora do público. Nunca responda no impulso.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s14">
+    <div class="step-header" onclick="toggleStep('s14')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s14')"></div>
+      <div class="step-num-badge">14</div>
+      <div class="step-info">
+        <div class="step-title">Ligar os botões de ação</div>
+        <div class="step-subtitle">WhatsApp, rota e site</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">O perfil precisa ter caminho de contato. Configure o link do site, o telefone e, quando disponível, a mensagem. Confira se o endereço abre a rota correta no Maps.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">📍</div><div>Teste a rota pelo celular de outra pessoa. Pino no lugar errado faz o cliente desistir no meio do caminho.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s15">
+    <div class="step-header" onclick="toggleStep('s15')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s15')"></div>
+      <div class="step-num-badge">15</div>
+      <div class="step-info">
+        <div class="step-title">Preencher Perguntas e Respostas</div>
+        <div class="step-subtitle">Responda antes de perguntarem</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Você mesmo pode publicar as perguntas mais comuns e já respondê-las. Isso tira dúvida de quem ia desistir e ocupa o espaço antes que alguém responda errado por você.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">❓</div><div>Comece pelas 5 perguntas que você mais recebe no WhatsApp.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s16">
+    <div class="step-header" onclick="toggleStep('s16')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s16')"></div>
+      <div class="step-num-badge">16</div>
+      <div class="step-info">
+        <div class="step-title">Acompanhar as métricas do perfil</div>
+        <div class="step-subtitle">Quem viu, quem ligou, quem traçou rota</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Olhe uma vez por mês: visualizações, cliques no site, ligações e rotas. É assim que você sabe se o que está fazendo no perfil está virando cliente.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">📊</div><div>Anote o número do primeiro mês. Sem o ponto de partida você não consegue provar evolução.</div></div></div>
+    </div>
+  </div>
+  <div class="complete-box" id="completebox">
+    <div class="icon">🎉</div>
+    <div class="title">Perfil completo!</div>
+    <div class="sub">Todas as 16 etapas foram marcadas. Agora é rotina: publicação toda semana, resposta em toda avaliação e métrica uma vez por mês.</div>
+  </div>
+</div>
+
+<script>
+  const TOTAL = 16;
+  const KEY = 'gmn_checklist';
+  function updateProgress() {
+    let done = 0;
+    for (let i = 1; i <= TOTAL; i++) if (document.getElementById('s'+i).classList.contains('done')) done++;
+    const pct = Math.round((done / TOTAL) * 100);
+    document.getElementById('bar').style.width = pct + '%';
+    document.getElementById('pct').textContent = pct + '%';
+    document.getElementById('prog').textContent = done + ' de ' + TOTAL + ' etapas';
+    document.getElementById('completebox').classList.toggle('show', done === TOTAL);
+    try { localStorage.setItem(KEY, JSON.stringify(getState())); } catch(e) {}
+  }
+  function toggleStep(id) { document.getElementById(id).classList.toggle('open'); }
+  function toggleCheck(e, id) { e.stopPropagation(); document.getElementById(id).classList.toggle('done'); updateProgress(); }
+  function getState() { const s={}; for (let i=1;i<=TOTAL;i++) s['s'+i]=document.getElementById('s'+i).classList.contains('done'); return s; }
+  function loadState() {
+    try { const s=JSON.parse(localStorage.getItem(KEY)||'{}');
+      Object.keys(s).forEach(k=>{ if(s[k]&&document.getElementById(k)) document.getElementById(k).classList.add('done'); });
+    } catch(e) {}
+    updateProgress();
+  }
+  loadState();
+</script>
+</body>
+</html>

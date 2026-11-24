@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Manual de Vendas no WhatsApp · Campanhas ON</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  :root {
+    --green:      #023D36;
+    --green-mid:  #011f1a;
+    --green-dark: #010e0c;
+    --orange:     #F16722;
+    --cream:      #ECE1D6;
+    --sage:       #73A093;
+    --sage-dim:   #2a5048;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--green-dark);
+    color: var(--cream);
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--green);
+    border-bottom: 1px solid rgba(115,160,147,0.15);
+    padding: 40px 60px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: 'VENDAS';
+    position: absolute;
+    right: -10px; bottom: -10px;
+    font-size: 160px;
+    font-weight: 900;
+    color: rgba(115,160,147,0.04);
+    letter-spacing: -6px;
+    pointer-events: none;
+  }
+  .header-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+  }
+  .header-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .header-title span { color: var(--orange); }
+  .header-sub {
+    font-size: 14px;
+    color: var(--sage);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 480px;
+  }
+  .progress-bar-bg {
+    flex: 1;
+    height: 6px;
+    background: rgba(115,160,147,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--orange);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--sage);
+    white-space: nowrap;
+    min-width: 80px;
+  }
+  .progress-pct {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--orange);
+    min-width: 48px;
+    text-align: right;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 0;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: rgba(241,103,34,0.07);
+    border: 1px solid rgba(241,103,34,0.18);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 40px;
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.8;
+  }
+  .intro-box strong { color: var(--cream); }
+
+  /* ── STEP ── */
+  .step {
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(115,160,147,0.1);
+    background: rgba(2,61,54,0.3);
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .step.done {
+    border-color: rgba(115,160,147,0.25);
+    background: rgba(2,61,54,0.15);
+  }
+  .step.done .step-title { color: var(--sage); }
+  .step.done .step-num-badge { background: var(--sage); }
+  .step.done .step-num-badge::after {
+    content: '✓';
+    font-size: 12px;
+    font-weight: 900;
+  }
+  .step.done .step-num-inner { display: none; }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .step-checkbox {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid rgba(115,160,147,0.3);
+    background: transparent;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .step-checkbox:hover { border-color: var(--orange); }
+  .step.done .step-checkbox {
+    background: var(--sage);
+    border-color: var(--sage);
+  }
+  .step.done .step-checkbox::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg) translateY(-1px);
+    display: block;
+  }
+
+  .step-num-badge {
+    width: 28px;
+    height: 28px;
+    background: rgba(241,103,34,0.15);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--orange);
+    transition: background 0.2s;
+  }
+
+  .step-info { flex: 1; }
+  .step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .step-subtitle {
+    font-size: 11px;
+    color: var(--sage-dim);
+    font-weight: 500;
+  }
+
+  .step-toggle {
+    font-size: 16px;
+    color: var(--sage-dim);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .step.open .step-toggle { transform: rotate(180deg); }
+
+  /* STEP BODY */
+  .step-body {
+    display: none;
+    padding: 0 20px 20px 86px;
+  }
+  .step.open .step-body { display: block; }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  /* TIPS */
+  .tips { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .tip {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--sage);
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .tip-icon {
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tip strong { color: var(--cream); }
+
+  /* ALERT */
+  .alert {
+    background: rgba(241,103,34,0.08);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--sage);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .alert strong { color: var(--orange); }
+
+  /* CHECK LIST */
+  .sub-checks { display: flex; flex-direction: column; gap: 6px; }
+  .sub-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--sage);
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .sub-check:hover { background: rgba(115,160,147,0.06); }
+  .sub-check input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--orange);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .sub-check.checked { color: var(--sage-dim); text-decoration: line-through; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage-dim);
+    margin: 36px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(115,160,147,0.08);
+  }
+
+  /* COMPLETE BOX */
+  .complete-box {
+    background: rgba(2,61,54,0.5);
+    border: 1px solid rgba(115,160,147,0.2);
+    border-radius: 12px;
+    padding: 28px 32px;
+    text-align: center;
+    margin-top: 40px;
+    display: none;
+  }
+  .complete-box.show { display: block; }
+  .complete-box .icon { font-size: 36px; margin-bottom: 12px; }
+  .complete-box .title {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .complete-box .sub {
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .header { padding: 28px 20px 24px; }
+    .header-title { font-size: 26px; }
+    .main { padding: 32px 16px 0; }
+    .step-body { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Manual de Vendas no WhatsApp para Empresários</div>
+  <div class="header-title">Checklist e <span>Modelos de Mensagem</span></div>
+  <div class="header-sub">Os 15 passos da aula em formato de checklist, com os modelos de mensagem prontos para copiar. Marque o que já aplicou no seu WhatsApp.</div>
+  <div class="progress-wrap">
+    <div class="progress-pct" id="pct">0%</div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="bar"></div></div>
+    <div class="progress-text" id="prog">0 de 15 etapas</div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="intro-box"><strong>Como usar este material:</strong> Deixe este documento aberto enquanto assiste à aula. Clique no quadrado de cada etapa quando aplicar no seu WhatsApp e no título para abrir os modelos de mensagem. Seu progresso é salvo automaticamente.</div>
+
+  <div class="section-label">Parte 1 — Onde a venda está sendo perdida</div>
+
+  <div class="step" id="s1">
+    <div class="step-header" onclick="toggleStep('s1')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s1')"></div>
+      <div class="step-num-badge">01</div>
+      <div class="step-info">
+        <div class="step-title">Medir seu tempo de resposta</div>
+        <div class="step-subtitle">O número que você provavelmente não sabe</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Abra as 10 últimas conversas de orçamento e anote quanto tempo levou entre a mensagem do cliente e a sua primeira resposta. Essa média é o seu ponto de partida.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">⏱️</div><div>Meta de trabalho: responder em minutos, não em horas. Quem responde primeiro costuma levar a venda.</div></div><div class="tip"><div class="tip-icon">📝</div><div>Anote a média de hoje. Sem o número inicial você não consegue provar que melhorou.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s2">
+    <div class="step-header" onclick="toggleStep('s2')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s2')"></div>
+      <div class="step-num-badge">02</div>
+      <div class="step-info">
+        <div class="step-title">Padronizar a primeira mensagem</div>
+        <div class="step-subtitle">A que muda o rumo da conversa</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">A primeira resposta não é preço. É acolher, mostrar que tem gente do outro lado e fazer a primeira pergunta que abre a conversa.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">💬</div><div>Modelo:<span style="display:block;background:rgba(1,14,12,.55);border-left:3px solid var(--orange);padding:12px 14px;margin:8px 0;border-radius:6px;font-size:13px;line-height:1.7;color:var(--cream)">Oi [nome], tudo bem? Aqui é o [seu nome], da [empresa].<br>Vi que você quer [serviço]. Pra te passar a melhor opção, me conta rapidinho: [pergunta de diagnóstico]?</span></div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s3">
+    <div class="step-header" onclick="toggleStep('s3')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s3')"></div>
+      <div class="step-num-badge">03</div>
+      <div class="step-info">
+        <div class="step-title">Parar de mandar preço na primeira mensagem</div>
+        <div class="step-subtitle">Preço sem valor vira comparação</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Quando o preço chega antes do entendimento, o cliente só tem um critério para decidir: o número. E sempre existe alguém mais barato.</div>
+      <div class="alert"><strong>Atenção:</strong> Mandar o preço de cara não é agilidade, é perder o controle da conversa. O preço entra depois que o cliente entende o que está comprando.</div>
+      
+    </div>
+  </div>
+  <div class="step" id="s4">
+    <div class="step-header" onclick="toggleStep('s4')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s4')"></div>
+      <div class="step-num-badge">04</div>
+      <div class="step-info">
+        <div class="step-title">Montar a resposta para "quanto custa?"</div>
+        <div class="step-subtitle">A pergunta que chega primeiro</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Não ignore e não fuja. Reconheça a pergunta, explique em uma linha por que o valor varia e faça a pergunta que te permite orçar.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">💬</div><div>Modelo:<span style="display:block;background:rgba(1,14,12,.55);border-left:3px solid var(--orange);padding:12px 14px;margin:8px 0;border-radius:6px;font-size:13px;line-height:1.7;color:var(--cream)">Boa pergunta! O valor muda conforme [variável], por isso não tenho um preço único.<br>Me responde só isso que eu já te passo o valor certo: [pergunta]?</span></div></div></div>
+    </div>
+  </div>
+  <div class="section-label">Parte 2 — Conduzindo a conversa</div>
+
+  <div class="step" id="s5">
+    <div class="step-header" onclick="toggleStep('s5')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s5')"></div>
+      <div class="step-num-badge">05</div>
+      <div class="step-info">
+        <div class="step-title">Escrever suas 5 perguntas de diagnóstico</div>
+        <div class="step-subtitle">As que fazem o cliente se convencer sozinho</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Perguntas abertas sobre a situação atual, o problema e o que ele já tentou. Quem responde vai percebendo o tamanho do problema sem você precisar argumentar.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">❓</div><div>Exemplos: Como você resolve isso hoje? O que te incomoda nisso? Já tentou outra coisa antes? O que precisa mudar pra você ficar satisfeito? Pra quando você precisa?</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s6">
+    <div class="step-header" onclick="toggleStep('s6')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s6')"></div>
+      <div class="step-num-badge">06</div>
+      <div class="step-info">
+        <div class="step-title">Definir quando usar áudio, texto e ligação</div>
+        <div class="step-subtitle">Cada canal tem a sua hora</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Texto para informação objetiva e para tudo que o cliente precisa reler (preço, prazo, endereço). Áudio para explicar algo complexo e criar proximidade. Ligação para destravar negociação parada.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">🎙️</div><div>Áudio de até 1 minuto. Áudio longo não é ouvido.</div></div><div class="tip"><div class="tip-icon">📄</div><div>Preço sempre por texto, mesmo que você tenha explicado por áudio.</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s7">
+    <div class="step-header" onclick="toggleStep('s7')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s7')"></div>
+      <div class="step-num-badge">07</div>
+      <div class="step-info">
+        <div class="step-title">Apresentar o preço depois do valor</div>
+        <div class="step-subtitle">Primeiro o que resolve, depois quanto custa</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Retome o que ele te contou, mostre o que a sua solução resolve daquilo e só então diga o valor. Dito o número, pare de falar e espere a resposta.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">💬</div><div>Modelo:<span style="display:block;background:rgba(1,14,12,.55);border-left:3px solid var(--orange);padding:12px 14px;margin:8px 0;border-radius:6px;font-size:13px;line-height:1.7;color:var(--cream)">Pelo que você me contou, o problema é [dor dele].<br>O que eu faço é [solução], e com isso você [resultado].<br>O investimento é R$ [valor].</span></div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s8">
+    <div class="step-header" onclick="toggleStep('s8')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s8')"></div>
+      <div class="step-num-badge">08</div>
+      <div class="step-info">
+        <div class="step-title">Assumir o comando sem pressionar</div>
+        <div class="step-subtitle">Toda mensagem termina com próximo passo</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Conversa sem condução morre. Toda mensagem sua termina com uma pergunta ou com uma proposta de próximo passo.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">🚫</div><div>Nunca encerre com "qualquer coisa estou à disposição". Essa frase entrega a conversa pro cliente e ele some.</div></div></div>
+    </div>
+  </div>
+  <div class="section-label">Parte 3 — Fechamento e follow-up</div>
+
+  <div class="step" id="s9">
+    <div class="step-header" onclick="toggleStep('s9')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s9')"></div>
+      <div class="step-num-badge">09</div>
+      <div class="step-info">
+        <div class="step-title">Preparar a resposta para "está caro"</div>
+        <div class="step-subtitle">Objeção de valor, não de preço</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Na maioria das vezes "está caro" quer dizer "não entendi o que estou levando". Pergunte antes de baixar o preço.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">💬</div><div>Modelo:<span style="display:block;background:rgba(1,14,12,.55);border-left:3px solid var(--orange);padding:12px 14px;margin:8px 0;border-radius:6px;font-size:13px;line-height:1.7;color:var(--cream)">Entendo. Caro comparado com o quê?<br>Pergunto porque às vezes a comparação é com um serviço que não inclui [diferencial], e aí o valor muda mesmo.</span></div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s10">
+    <div class="step-header" onclick="toggleStep('s10')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s10')"></div>
+      <div class="step-num-badge">10</div>
+      <div class="step-info">
+        <div class="step-title">Preparar a resposta para "vou pensar"</div>
+        <div class="step-subtitle">Descobrir o que falta</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">"Vou pensar" quase nunca é sobre pensar. É uma dúvida que ele não falou em voz alta.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">💬</div><div>Modelo:<span style="display:block;background:rgba(1,14,12,.55);border-left:3px solid var(--orange);padding:12px 14px;margin:8px 0;border-radius:6px;font-size:13px;line-height:1.7;color:var(--cream)">Claro, é uma decisão sua.<br>Só pra eu te ajudar melhor: o que ainda está te deixando em dúvida? É o valor, o prazo ou alguma outra coisa?</span></div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s11">
+    <div class="step-header" onclick="toggleStep('s11')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s11')"></div>
+      <div class="step-num-badge">11</div>
+      <div class="step-info">
+        <div class="step-title">Preparar a resposta para "vou falar com meu sócio"</div>
+        <div class="step-subtitle">Levar a conversa até quem decide</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Se quem decide não está na conversa, sua proposta vai ser recontada por outra pessoa, pior do que você contaria.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">💬</div><div>Modelo:<span style="display:block;background:rgba(1,14,12,.55);border-left:3px solid var(--orange);padding:12px 14px;margin:8px 0;border-radius:6px;font-size:13px;line-height:1.7;color:var(--cream)">Perfeito. Quer que eu te mande um resumo em texto pra facilitar?<br>Ou, se preferir, consigo falar com vocês dois juntos em 10 minutos.</span></div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s12">
+    <div class="step-header" onclick="toggleStep('s12')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s12')"></div>
+      <div class="step-num-badge">12</div>
+      <div class="step-info">
+        <div class="step-title">Definir sua pergunta de fechamento</div>
+        <div class="step-subtitle">E a hora de fazer</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Depois que a objeção caiu, feche. Pergunta direta, uma só, e silêncio depois.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">💬</div><div>Modelos: "Posso reservar sua data?" · "Fechamos então?" · "Prefere começar [opção A] ou [opção B]?"</div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s13">
+    <div class="step-header" onclick="toggleStep('s13')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s13')"></div>
+      <div class="step-num-badge">13</div>
+      <div class="step-info">
+        <div class="step-title">Montar a régua de follow-up</div>
+        <div class="step-subtitle">De quem sumiu, sem parecer insistente</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Orçamento sem resposta não está perdido, está parado. Cada toque traz informação nova em vez de cobrar.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">📆</div><div>Sugestão de régua: dia 1 após o orçamento, dia 3, dia 7, dia 15 e dia 30.</div></div><div class="tip"><div class="tip-icon">💬</div><div>Modelo:<span style="display:block;background:rgba(1,14,12,.55);border-left:3px solid var(--orange);padding:12px 14px;margin:8px 0;border-radius:6px;font-size:13px;line-height:1.7;color:var(--cream)">Oi [nome], tudo certo?<br>Lembrei de você porque [motivo novo: vaga na agenda, condição, caso parecido].<br>Ainda faz sentido pra você?</span></div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s14">
+    <div class="step-header" onclick="toggleStep('s14')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s14')"></div>
+      <div class="step-num-badge">14</div>
+      <div class="step-info">
+        <div class="step-title">Reativar orçamento antigo</div>
+        <div class="step-subtitle">A lista que já está no seu celular</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Separe todos os orçamentos dos últimos 6 meses que não fecharam. Essa é a lista mais barata de clientes que existe: já conhecem você e já quiseram comprar.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">📋</div><div>Faça 10 por dia. Em um mês você passou por 200 pessoas que já pediram orçamento.</div></div><div class="tip"><div class="tip-icon">💬</div><div>Modelo:<span style="display:block;background:rgba(1,14,12,.55);border-left:3px solid var(--orange);padding:12px 14px;margin:8px 0;border-radius:6px;font-size:13px;line-height:1.7;color:var(--cream)">Oi [nome]! Passando pra saber se você chegou a resolver aquele [serviço] que a gente conversou.<br>Se ainda estiver de pé, consigo te encaixar [prazo].</span></div></div></div>
+    </div>
+  </div>
+  <div class="step" id="s15">
+    <div class="step-header" onclick="toggleStep('s15')">
+      <div class="step-checkbox" onclick="toggleCheck(event,'s15')"></div>
+      <div class="step-num-badge">15</div>
+      <div class="step-info">
+        <div class="step-title">Montar a rotina diária</div>
+        <div class="step-subtitle">O que garante que ninguém se perde</div>
+      </div>
+      <div class="step-toggle">▾</div>
+    </div>
+    <div class="step-body">
+      <div class="step-desc">Reserve dois blocos fixos no dia: um para responder tudo que chegou e outro para o follow-up de quem não respondeu. Fora desses blocos, nenhum lead fica esperando.</div>
+      
+      <div class="tips"><div class="tip"><div class="tip-icon">✅</div><div>Fim do dia: nenhuma conversa sem resposta e nenhum orçamento do dia sem data de follow-up marcada.</div></div></div>
+    </div>
+  </div>
+  <div class="complete-box" id="completebox">
+    <div class="icon">🎉</div>
+    <div class="title">Processo montado!</div>
+    <div class="sub">As 15 etapas foram marcadas. Agora é repetição diária: responder rápido, conduzir a conversa e nunca deixar orçamento parado sem follow-up.</div>
+  </div>
+</div>
+
+<script>
+  const TOTAL = 15;
+  const KEY = 'manual_whatsapp';
+  function updateProgress() {
+    let done = 0;
+    for (let i = 1; i <= TOTAL; i++) if (document.getElementById('s'+i).classList.contains('done')) done++;
+    const pct = Math.round((done / TOTAL) * 100);
+    document.getElementById('bar').style.width = pct + '%';
+    document.getElementById('pct').textContent = pct + '%';
+    document.getElementById('prog').textContent = done + ' de ' + TOTAL + ' etapas';
+    document.getElementById('completebox').classList.toggle('show', done === TOTAL);
+    try { localStorage.setItem(KEY, JSON.stringify(getState())); } catch(e) {}
+  }
+  function toggleStep(id) { document.getElementById(id).classList.toggle('open'); }
+  function toggleCheck(e, id) { e.stopPropagation(); document.getElementById(id).classList.toggle('done'); updateProgress(); }
+  function getState() { const s={}; for (let i=1;i<=TOTAL;i++) s['s'+i]=document.getElementById('s'+i).classList.contains('done'); return s; }
+  function loadState() {
+    try { const s=JSON.parse(localStorage.getItem(KEY)||'{}');
+      Object.keys(s).forEach(k=>{ if(s[k]&&document.getElementById(k)) document.getElementById(k).classList.add('done'); });
+    } catch(e) {}
+    updateProgress();
+  }
+  loadState();
+</script>
+</body>
+</html>
