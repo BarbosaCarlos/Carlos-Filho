@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Swipe File · Criativos validados do TPE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{--green:#023D36;--green-mid:#011f1a;--green-dark:#010e0c;--orange:#F16722;--cream:#ECE1D6;--sage:#73A093}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--green-dark);color:var(--cream);padding-bottom:80px}
+.header{background:var(--green);padding:48px 24px 40px;position:relative;overflow:hidden}
+.header::before{content:'SWIPE';position:absolute;right:-12px;bottom:-26px;font-size:150px;font-weight:900;color:rgba(115,160,147,.05);letter-spacing:-6px;pointer-events:none}
+.wrap{max-width:1080px;margin:0 auto}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:12px}
+h1{font-size:38px;font-weight:900;letter-spacing:-1.4px;line-height:1.05;margin-bottom:12px}
+h1 span{color:var(--orange)}
+.sub{font-size:14px;color:var(--sage);max-width:620px;line-height:1.65}
+.stats{display:flex;gap:32px;margin-top:26px;flex-wrap:wrap}
+.stat b{display:block;font-size:24px;font-weight:900;color:var(--orange);line-height:1}
+.stat span{font-size:11px;color:var(--sage);text-transform:uppercase;letter-spacing:1.4px}
+.tools{max-width:1080px;margin:28px auto 0;padding:0 24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.chip{background:transparent;border:1px solid rgba(115,160,147,.3);color:var(--cream);padding:8px 16px;border-radius:99px;font:600 13px Inter,sans-serif;cursor:pointer}
+.chip.on{background:var(--orange);border-color:var(--orange);color:#fff}
+#busca{flex:1;min-width:200px;background:var(--green-mid);border:1px solid rgba(115,160,147,.22);color:var(--cream);padding:10px 16px;border-radius:99px;font:400 13px Inter,sans-serif}
+#busca::placeholder{color:var(--sage)}
+.count{max-width:1080px;margin:16px auto 0;padding:0 24px;font-size:12px;color:var(--sage)}
+.grid{max-width:1080px;margin:14px auto 0;padding:0 24px;display:flex;flex-direction:column;gap:18px}
+.card{background:var(--green);border:1px solid rgba(115,160,147,.16);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:300px 1fr}
+.card-media{background:var(--green-mid);display:flex;align-items:center;justify-content:center;padding:18px}
+.thumb{display:block;width:100%;border-radius:8px;overflow:hidden;line-height:0}
+.thumb img{width:100%;height:auto;display:block}
+.thumb.small img{max-width:160px;margin:0 auto;border-radius:8px}
+.thumb.noimg{display:flex;align-items:center;justify-content:center;min-height:200px;border:1px dashed rgba(115,160,147,.3);border-radius:8px;color:var(--sage);font-size:12px;text-align:center;line-height:1.6}
+.card-body{padding:22px 24px 24px}
+.card-top{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.num{font-size:12px;font-weight:900;color:var(--orange)}
+.cat{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--sage)}
+.badge{font-size:9px;font-weight:800;letter-spacing:1.2px;color:#fff;padding:3px 9px;border-radius:99px}
+h3{font-size:19px;font-weight:800;margin-bottom:8px;letter-spacing:-.3px}
+.desc{font-size:13.5px;color:var(--sage);line-height:1.65;margin-bottom:16px}
+.block{margin-bottom:14px}
+.lbl{display:block;font-size:9.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--orange);margin-bottom:5px}
+.block p{font-size:13.5px;line-height:1.65}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
+th{text-align:left;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--sage);font-weight:700;padding:5px 8px 5px 0;border-bottom:1px solid rgba(115,160,147,.18)}
+td{padding:6px 8px 6px 0;border-bottom:1px solid rgba(115,160,147,.08)}
+td.cpa{color:var(--orange);font-weight:700}
+.dna{max-width:1080px;margin:46px auto 0;padding:0 24px}
+.dna-box{background:var(--green);border-left:3px solid var(--orange);border-radius:12px;padding:28px 30px}
+.dna-box h2{font-size:22px;font-weight:900;margin-bottom:16px;letter-spacing:-.5px}
+.dna-box ol{padding-left:20px}
+.dna-box li{font-size:14px;line-height:1.75;margin-bottom:10px}
+.foot{max-width:1080px;margin:40px auto 0;padding:0 24px;font-size:11.5px;color:var(--sage);line-height:1.8}
+@media(max-width:760px){.card{grid-template-columns:1fr} h1{font-size:28px} .header::before{font-size:90px}}
+</style>
+</head>
+<body>
+
+<div class="header"><div class="wrap">
+  <div class="eyebrow">Campanhas ON · Tráfego para Empresários</div>
+  <h1>Swipe file dos <span>criativos validados</span></h1>
+  <div class="sub">Os criativos que realmente venderam o TPE, com os números que cada um fez. Tudo puxado direto da conta de anúncio, nada de exemplo ilustrativo.</div>
+  <div class="stats">
+    <div class="stat"><b>466</b><span>vendas</span></div>
+    <div class="stat"><b>7</b><span>criativos</span></div>
+    <div class="stat"><b>R$ 13,66</b><span>melhor CPA</span></div>
+    <div class="stat"><b>2026</b><span>janeiro a novembro</span></div>
+  </div>
+</div></div>
+
+<div class="tools">
+  <button class="chip on" data-f="Todos">Todos</button>
+  <button class="chip" data-f="Pôster de oferta">Pôster de oferta</button><button class="chip" data-f="UGC nativo">UGC nativo</button><button class="chip" data-f="Vídeo">Vídeo</button>
+  <input id="busca" placeholder="Buscar no swipe file...">
+</div>
+<div class="count" id="count"></div>
+
+<div class="grid" id="grid">
+
+<article class="card" data-cat="Pôster de oferta" data-q="pôster do ímã · r$ 37 headline gigante em amarelo sobre cena escura, preço carimbado em vermelho e uma fila de gente entrando na loja. público frio, oferta de entrada com preço baixo e explícito.">
+  <div class="card-media"><a class="thumb" href="gpt004.jpg" target="_blank" rel="noopener"><img src="gpt004.jpg" alt="Pôster do ímã · R$ 37" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-top"><span class="num">01</span><span class="cat">Pôster de oferta</span><span class="badge" style="background:#F16722">CAMPEÃO</span></div>
+    <h3>Pôster do ímã · R$ 37</h3>
+    <p class="desc">Headline gigante em amarelo sobre cena escura, preço carimbado em vermelho e uma fila de gente entrando na loja.</p>
+    <div class="block"><span class="lbl">Use pra</span><p>Público frio, oferta de entrada com preço baixo e explícito.</p></div>
+    <div class="block"><span class="lbl">Por que funcionou</span><p>É o criativo que sustentou a conta inteira. Nada é sutil: a promessa está em caixa alta ocupando metade da tela, o preço é o segundo maior elemento e a cena mostra o resultado (gente entrando) em vez do produto.</p></div>
+    <div class="block"><span class="lbl">Como rodou · 316 vendas</span>
+      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>LP</td><td>R$ 5.391,55</td><td><b>156</b></td><td class="cpa">R$ 34,56</td></tr><tr><td>LP · outra leva</td><td>R$ 1.668,65</td><td><b>72</b></td><td class="cpa">R$ 23,18</td></tr><tr><td>LP · outra leva</td><td>R$ 987,64</td><td><b>58</b></td><td class="cpa">R$ 17,03</td></tr><tr><td>MEME</td><td>R$ 1.069,65</td><td><b>24</b></td><td class="cpa">R$ 44,57</td></tr><tr><td>QUIZ</td><td>R$ 315,53</td><td><b>6</b></td><td class="cpa">R$ 52,59</td></tr></tbody></table>
+    </div>
+  </div>
+</article>
+<article class="card" data-cat="Pôster de oferta" data-q="pôster do ímã · r$ 67 mesma arte, só o número do preço trocado. testar elasticidade de preço sem jogar fora o criativo que já ganhou.">
+  <div class="card-media"><a class="thumb" href="005r67.jpg" target="_blank" rel="noopener"><img src="005r67.jpg" alt="Pôster do ímã · R$ 67" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-top"><span class="num">02</span><span class="cat">Pôster de oferta</span></div>
+    <h3>Pôster do ímã · R$ 67</h3>
+    <p class="desc">Mesma arte, só o número do preço trocado.</p>
+    <div class="block"><span class="lbl">Use pra</span><p>Testar elasticidade de preço sem jogar fora o criativo que já ganhou.</p></div>
+    <div class="block"><span class="lbl">Por que funcionou</span><p>Prova que o que validou foi a arte, não o preço. Trocar só o número manteve o CPA saudável e economizou uma rodada inteira de produção.</p></div>
+    <div class="block"><span class="lbl">Como rodou · 8 vendas</span>
+      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>LP</td><td>R$ 230,62</td><td><b>8</b></td><td class="cpa">R$ 28,83</td></tr></tbody></table>
+    </div>
+  </div>
+</article>
+<article class="card" data-cat="Pôster de oferta" data-q="pôster do ímã · r$ 97 a mesma arte de novo, agora com r$ 97. mostrar até onde um criativo vencedor aguenta subida de preço.">
+  <div class="card-media"><a class="thumb" href="n21.jpg" target="_blank" rel="noopener"><img src="n21.jpg" alt="Pôster do ímã · R$ 97" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-top"><span class="num">03</span><span class="cat">Pôster de oferta</span><span class="badge" style="background:#C2410C">LIMITE</span></div>
+    <h3>Pôster do ímã · R$ 97</h3>
+    <p class="desc">A mesma arte de novo, agora com R$ 97.</p>
+    <div class="block"><span class="lbl">Use pra</span><p>Mostrar até onde um criativo vencedor aguenta subida de preço.</p></div>
+    <div class="block"><span class="lbl">Por que funcionou</span><p>O mesmo criativo que vendia a R$ 17 passou a vender a R$ 140. A arte continuou atraindo o clique e o preço parou a venda. É o limite da peça, não o fim dela.</p></div>
+    <div class="block"><span class="lbl">Como rodou · 48 vendas</span>
+      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>LP</td><td>R$ 4.346,48</td><td><b>31</b></td><td class="cpa">R$ 140,21</td></tr><tr><td>LP</td><td>R$ 826,16</td><td><b>10</b></td><td class="cpa">R$ 82,62</td></tr><tr><td>QUIZ</td><td>R$ 273,51</td><td><b>3</b></td><td class="cpa">R$ 91,17</td></tr><tr><td>LP · relançada</td><td>R$ 217,06</td><td><b>4</b></td><td class="cpa">R$ 54,27</td></tr></tbody></table>
+    </div>
+  </div>
+</article>
+<article class="card" data-cat="UGC nativo" data-q="selfie da oficina · "eu pagava 900 por mês" dono de oficina mecânica, selfie no celular dentro do próprio negócio, legenda queimada em 4 linhas. quebrar a objeção de quem já paga agência e acha que não dá conta sozinho.">
+  <div class="card-media"><a class="thumb" href="021.jpg" target="_blank" rel="noopener"><img src="021.jpg" alt="Selfie da oficina · "eu pagava 900 por mês"" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-top"><span class="num">04</span><span class="cat">UGC nativo</span></div>
+    <h3>Selfie da oficina · "eu pagava 900 por mês"</h3>
+    <p class="desc">Dono de oficina mecânica, selfie no celular dentro do próprio negócio, legenda queimada em 4 linhas.</p>
+    <div class="block"><span class="lbl">Use pra</span><p>Quebrar a objeção de quem já paga agência e acha que não dá conta sozinho.</p></div>
+    <div class="block"><span class="lbl">Por que funcionou</span><p>Fala de par pra par. O cenário é bagunçado de verdade (ferramenta na parede, carro com o capô aberto) e por isso não parece anúncio. O número 900 ancora o preço de R$ 37 sem precisar argumentar.</p></div>
+    <div class="block"><span class="lbl">Como rodou · 4 vendas</span>
+      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>QUIZ</td><td>R$ 293,91</td><td><b>4</b></td><td class="cpa">R$ 73,48</td></tr></tbody></table>
+    </div>
+  </div>
+</article>
+<article class="card" data-cat="Vídeo" data-q="vídeo 1min13 · criativo 07 vídeo vertical de 73 segundos rodando como reel. escalar depois que o pôster satura o público frio.">
+  <div class="card-media"><a class="thumb small" href="vid-c10.jpg" target="_blank" rel="noopener"><img src="vid-c10.jpg" alt="Vídeo 1min13 · Criativo 07" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-top"><span class="num">05</span><span class="cat">Vídeo</span></div>
+    <h3>Vídeo 1min13 · Criativo 07</h3>
+    <p class="desc">Vídeo vertical de 73 segundos rodando como reel.</p>
+    <div class="block"><span class="lbl">Use pra</span><p>Escalar depois que o pôster satura o público frio.</p></div>
+    <div class="block"><span class="lbl">Por que funcionou</span><p>É o vídeo que mais rodou verba na conta e seguiu entregando venda. Vídeo satura mais devagar que imagem, então ele segura a campanha quando o pôster começa a cansar.</p></div>
+    <div class="block"><span class="lbl">Como rodou · 26 vendas</span>
+      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>BIDCAP</td><td>R$ 1.933,39</td><td><b>23</b></td><td class="cpa">R$ 84,06</td></tr><tr><td>COST-OBJ</td><td>R$ 512,54</td><td><b>3</b></td><td class="cpa">R$ 170,85</td></tr></tbody></table>
+    </div>
+  </div>
+</article>
+<article class="card" data-cat="Vídeo" data-q="vídeo 55s · caixinha vídeo vertical de 55 segundos, formato caixinha de pergunta. responder uma objeção específica usando a voz do próprio cliente.">
+  <div class="card-media"><a class="thumb small" href="vid-caixinha.jpg" target="_blank" rel="noopener"><img src="vid-caixinha.jpg" alt="Vídeo 55s · caixinha" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-top"><span class="num">06</span><span class="cat">Vídeo</span></div>
+    <h3>Vídeo 55s · caixinha</h3>
+    <p class="desc">Vídeo vertical de 55 segundos, formato caixinha de pergunta.</p>
+    <div class="block"><span class="lbl">Use pra</span><p>Responder uma objeção específica usando a voz do próprio cliente.</p></div>
+    <div class="block"><span class="lbl">Por que funcionou</span><p>Formato de resposta a pergunta funciona porque entrega a objeção já mastigada. CPA abaixo do pôster na mesma janela.</p></div>
+    <div class="block"><span class="lbl">Como rodou · 5 vendas</span>
+      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>QUIZ</td><td>R$ 285,32</td><td><b>5</b></td><td class="cpa">R$ 57,06</td></tr></tbody></table>
+    </div>
+  </div>
+</article>
+<article class="card" data-cat="Vídeo" data-q="vídeo "07" · o melhor cpa da conta vídeo da leva de agosto. o arquivo não é mais recuperável pela api da meta, só os números. referência de teto: é o cpa mais baixo que a conta já produziu.">
+  <div class="card-media"><div class="thumb noimg"><span>arquivo<br>indisponível</span></div></div>
+  <div class="card-body">
+    <div class="card-top"><span class="num">07</span><span class="cat">Vídeo</span><span class="badge" style="background:#73A093">MELHOR CPA</span></div>
+    <h3>Vídeo "07" · o melhor CPA da conta</h3>
+    <p class="desc">Vídeo da leva de agosto. O arquivo não é mais recuperável pela API da Meta, só os números.</p>
+    <div class="block"><span class="lbl">Use pra</span><p>Referência de teto: é o CPA mais baixo que a conta já produziu.</p></div>
+    <div class="block"><span class="lbl">Por que funcionou</span><p>R$ 13,66 por venda com 59 vendas em R$ 805 de verba. É o número que define o que é possível neste produto quando criativo, oferta e preço estão alinhados.</p></div>
+    <div class="block"><span class="lbl">Como rodou · 59 vendas</span>
+      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>LP</td><td>R$ 805,76</td><td><b>59</b></td><td class="cpa">R$ 13,66</td></tr></tbody></table>
+    </div>
+  </div>
+</article>
+</div>
+
+<div class="dna">
+  <div class="dna-box">
+    <h2>O que se repete nos que venderam</h2>
+    <ol>
+      <li><b>A promessa é o maior elemento da tela.</b> Em todos os pôsteres a headline ocupa metade da arte. Nenhum vencedor é discreto.</li>
+      <li><b>O preço aparece na arte.</b> Não no texto do anúncio, na imagem. Quem não quer pagar aquele valor nem clica, e o clique que sobra é barato.</li>
+      <li><b>A cena mostra o resultado, não o produto.</b> Fila de gente entrando na loja, não print de aula nem mockup de curso.</li>
+      <li><b>Uma arte vencedora se reaproveita trocando um elemento só.</b> O mesmo pôster rodou a R$ 37, R$ 67 e R$ 97 mudando apenas o número.</li>
+      <li><b>O UGC compra o que o pôster não compra.</b> O pôster pega quem não conhece. A selfie no meio da bagunça real quebra a objeção de quem já paga agência.</li>
+      <li><b>Vídeo satura mais devagar.</b> O pôster escala rápido e cansa; o vídeo segura a campanha depois disso.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="foot">
+  Dados lidos na conta de anúncio em 26/11/2026, janela de 01/01 a 26/11/2026. CPA é o custo por compra apurado pelo Gerenciador de Anúncios.<br>
+  Os dois vídeos aparecem como miniatura porque a API da Meta não libera o download do arquivo original.
+</div>
+
+<script>
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  var busca=document.getElementById('busca');
+  var count=document.getElementById('count');
+  var filtro='Todos';
+  function render(){
+    var q=busca.value.trim().toLowerCase();
+    var n=0;
+    cards.forEach(function(c){
+      var okCat = filtro==='Todos' || c.dataset.cat===filtro;
+      var okQ = !q || c.dataset.q.indexOf(q)>-1;
+      var show = okCat && okQ;
+      c.style.display = show ? '' : 'none';
+      if(show) n++;
+    });
+    count.textContent='Mostrando '+n+' de '+cards.length+' criativos';
+  }
+  chips.forEach(function(ch){
+    ch.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('on')});
+      ch.classList.add('on'); filtro=ch.dataset.f; render();
+    });
+  });
+  busca.addEventListener('input',render);
+  render();
+</script>
+</body>
+</html>
