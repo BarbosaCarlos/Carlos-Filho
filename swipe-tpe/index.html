@@ -638,8 +638,8 @@ document.querySelectorAll('.preview').forEach(function(p){
     else { mi.src=p.dataset.img; mi.style.display='block'; mv.style.display='none'; mv.removeAttribute('src'); }
     var bd=p.parentNode.querySelector('.card-body');
     document.getElementById('mdt').textContent=bd.querySelector('h3').textContent;
-    document.getElementById('mdg').textContent=bd.querySelector('.g').textContent;
-    document.getElementById('mdm').textContent=bd.querySelector('.mm').textContent;
+    document.getElementById('mdg').textContent=bd.querySelector('.o-que').textContent;
+    var qd=bd.querySelector('.quando').cloneNode(true);var lb=qd.querySelector('span');if(lb)lb.parentNode.removeChild(lb);document.getElementById('mdm').textContent='Use pra: '+qd.textContent.trim();
     document.getElementById('mds').innerHTML=bd.querySelector('.sel').outerHTML;
     md.classList.add('on'); document.body.style.overflow='hidden';
   });
