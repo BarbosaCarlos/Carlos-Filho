@@ -2,220 +2,543 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Swipe File · Criativos validados do TPE</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>24 criativos de um produto só | TPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-:root{--green:#023D36;--green-mid:#011f1a;--green-dark:#010e0c;--orange:#F16722;--cream:#ECE1D6;--sage:#73A093}
+:root{--bg:#F6FAFE;--ink:#171C1F;--mut:#3F484D;--soft:#EAEEF2;--blue:#003EC7;--line:#E2E8EE;--ok:#0C7A4D}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:var(--green-dark);color:var(--cream);padding-bottom:80px}
-.header{background:var(--green);padding:48px 24px 40px;position:relative;overflow:hidden}
-.header::before{content:'SWIPE';position:absolute;right:-12px;bottom:-26px;font-size:150px;font-weight:900;color:rgba(115,160,147,.05);letter-spacing:-6px;pointer-events:none}
-.wrap{max-width:1080px;margin:0 auto}
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:12px}
-h1{font-size:38px;font-weight:900;letter-spacing:-1.4px;line-height:1.05;margin-bottom:12px}
-h1 span{color:var(--orange)}
-.sub{font-size:14px;color:var(--sage);max-width:620px;line-height:1.65}
-.stats{display:flex;gap:32px;margin-top:26px;flex-wrap:wrap}
-.stat b{display:block;font-size:24px;font-weight:900;color:var(--orange);line-height:1}
-.stat span{font-size:11px;color:var(--sage);text-transform:uppercase;letter-spacing:1.4px}
-.tools{max-width:1080px;margin:28px auto 0;padding:0 24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.chip{background:transparent;border:1px solid rgba(115,160,147,.3);color:var(--cream);padding:8px 16px;border-radius:99px;font:600 13px Inter,sans-serif;cursor:pointer}
-.chip.on{background:var(--orange);border-color:var(--orange);color:#fff}
-#busca{flex:1;min-width:200px;background:var(--green-mid);border:1px solid rgba(115,160,147,.22);color:var(--cream);padding:10px 16px;border-radius:99px;font:400 13px Inter,sans-serif}
-#busca::placeholder{color:var(--sage)}
-.count{max-width:1080px;margin:16px auto 0;padding:0 24px;font-size:12px;color:var(--sage)}
-.grid{max-width:1080px;margin:14px auto 0;padding:0 24px;display:flex;flex-direction:column;gap:18px}
-.card{background:var(--green);border:1px solid rgba(115,160,147,.16);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:300px 1fr}
-.card-media{background:var(--green-mid);display:flex;align-items:center;justify-content:center;padding:18px}
-.thumb{display:block;width:100%;border-radius:8px;overflow:hidden;line-height:0}
-.thumb img{width:100%;height:auto;display:block}
-.thumb.small img{max-width:160px;margin:0 auto;border-radius:8px}
-.thumb.noimg{display:flex;align-items:center;justify-content:center;min-height:200px;border:1px dashed rgba(115,160,147,.3);border-radius:8px;color:var(--sage);font-size:12px;text-align:center;line-height:1.6}
-.card-body{padding:22px 24px 24px}
-.card-top{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
-.num{font-size:12px;font-weight:900;color:var(--orange)}
-.cat{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--sage)}
-.badge{font-size:9px;font-weight:800;letter-spacing:1.2px;color:#fff;padding:3px 9px;border-radius:99px}
-h3{font-size:19px;font-weight:800;margin-bottom:8px;letter-spacing:-.3px}
-.desc{font-size:13.5px;color:var(--sage);line-height:1.65;margin-bottom:16px}
-.block{margin-bottom:14px}
-.lbl{display:block;font-size:9.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--orange);margin-bottom:5px}
-.block p{font-size:13.5px;line-height:1.65}
-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
-th{text-align:left;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--sage);font-weight:700;padding:5px 8px 5px 0;border-bottom:1px solid rgba(115,160,147,.18)}
-td{padding:6px 8px 6px 0;border-bottom:1px solid rgba(115,160,147,.08)}
-td.cpa{color:var(--orange);font-weight:700}
-.dna{max-width:1080px;margin:46px auto 0;padding:0 24px}
-.dna-box{background:var(--green);border-left:3px solid var(--orange);border-radius:12px;padding:28px 30px}
-.dna-box h2{font-size:22px;font-weight:900;margin-bottom:16px;letter-spacing:-.5px}
-.dna-box ol{padding-left:20px}
-.dna-box li{font-size:14px;line-height:1.75;margin-bottom:10px}
-.foot{max-width:1080px;margin:40px auto 0;padding:0 24px;font-size:11.5px;color:var(--sage);line-height:1.8}
-@media(max-width:760px){.card{grid-template-columns:1fr} h1{font-size:28px} .header::before{font-size:90px}}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{font-family:'Plus Jakarta Sans';font-weight:800;font-size:19px;letter-spacing:-.8px}
+.logo i{font-style:normal;color:var(--blue)}
+.top nav{font-size:13.5px;color:var(--mut);display:flex;gap:22px}
+.hero{display:grid;grid-template-columns:1.35fr .9fr;gap:48px;padding:38px 0 42px;align-items:start}
+h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:42px;letter-spacing:-2.3px;line-height:1.12;margin-bottom:18px}
+.lead{font-size:15px;color:var(--mut);line-height:1.65;max-width:520px}
+.box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.box b{display:block;font-size:14.5px;margin-bottom:8px}
+.box p{font-size:13.5px;color:var(--mut);line-height:1.65;margin-bottom:14px}
+.box .tagline{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--blue);background:#EEF3FF;padding:8px 13px;border-radius:9px}
+.secline{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0 18px;flex-wrap:wrap}
+.secline h2{font-family:'Plus Jakarta Sans';font-size:21px;font-weight:800;letter-spacing:-.9px}
+.secline h2 em{font-style:normal;color:var(--blue);font-size:12.5px;font-weight:600;margin-left:9px;letter-spacing:0}
+.secline .mostra{font-size:12.5px;color:var(--mut)}
+.tools{display:flex;gap:9px;flex-wrap:wrap;align-items:center;padding-bottom:22px}
+#busca{flex:1;min-width:210px;max-width:330px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font:400 13.5px Inter;color:var(--ink)}
+#busca::placeholder{color:#93A1AB}
+.f{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:600 13px Inter;color:var(--ink);cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.f i{font-style:normal;color:#93A1AB;font-weight:600;font-size:12px}
+.f:hover{border-color:#C6D2DE}
+.f.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.f.on i{color:rgba(255,255,255,.6)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));gap:26px 22px;padding-bottom:10px}
+.card{background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.preview{position:relative;display:block;width:100%;aspect-ratio:3/4;background:var(--soft);border:0;border-radius:16px;overflow:hidden;cursor:pointer;padding:0}
+.preview img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.preview:hover img{transform:scale(1.035)}
+.num{position:absolute;top:12px;left:13px;font-size:11.5px;font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.plat{position:absolute;top:11px;right:12px;font-size:10.5px;font-weight:600;color:#fff;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);padding:4px 9px;border-radius:999px}
+.ver{position:absolute;left:12px;bottom:12px;font-size:12px;font-weight:600;color:var(--ink);background:#fff;padding:7px 13px;border-radius:999px;opacity:0;transform:translateY(5px);transition:.2s}
+.preview:hover .ver{opacity:1;transform:none}
+.card-body{padding:14px 4px 0;display:flex;flex-direction:column;gap:7px;flex:1}
+.category{font-size:10.9px;color:var(--blue);font-weight:600}
+.card h3{font-size:18.4px;font-weight:700;letter-spacing:-.64px;line-height:1.25}
+.o-que{font-size:14px;color:var(--mut);line-height:1.65}
+.quando{font-size:14px;color:var(--mut);line-height:1.6}
+.quando span{display:block;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:1px}
+.credito{margin-top:auto;padding-top:13px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px}
+.sel{font-size:12px;font-weight:600}
+.sel.ok{color:var(--ok)}
+.sel.no{color:#93A1AB;font-weight:500}
+.original{width:28px;height:28px;border:1px solid var(--line);border-radius:8px;display:grid;place-items:center;flex:none}
+.original svg{width:14px;height:14px;fill:none;stroke:var(--ink);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.original:hover{background:var(--ink)} .original:hover svg{stroke:#fff}
+.apren{margin:54px 0 0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 32px}
+.apren h2{font-family:'Plus Jakarta Sans';font-size:22px;font-weight:800;letter-spacing:-1px;margin-bottom:18px}
+.apren ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 28px}
+.apren li b{display:block;font-size:14.5px;margin-bottom:5px}
+.apren li p{font-size:13.5px;color:var(--mut);line-height:1.6}
+.foot{padding:34px 0 70px;font-size:12px;color:#93A1AB;line-height:1.8}
+.md{position:fixed;inset:0;background:rgba(10,14,18,.72);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:26px;z-index:50}
+.md.on{display:flex}
+.md-in{background:#fff;border-radius:18px;max-width:860px;width:100%;max-height:90vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr}
+.md-in img{width:100%;height:100%;object-fit:cover;display:block;background:var(--soft)}
+.md-tx{padding:30px 30px 32px;display:flex;flex-direction:column;gap:12px}
+.md-tx h3{font-family:'Plus Jakarta Sans';font-size:23px;font-weight:800;letter-spacing:-1px}
+.md-tx .gan{font-size:14px;line-height:1.6;background:#F2F6FB;border-left:3px solid var(--blue);padding:13px 15px;border-radius:0 9px 9px 0}
+.md-tx p{font-size:14px;color:var(--mut);line-height:1.68}
+.md-x{position:absolute;top:22px;right:26px;background:#fff;border:0;width:36px;height:36px;border-radius:50%;font-size:19px;cursor:pointer;line-height:1}
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:26px} h1{font-size:32px;letter-spacing:-1.5px} .md-in{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<div class="header"><div class="wrap">
-  <div class="eyebrow">Campanhas ON · Tráfego para Empresários</div>
-  <h1>Swipe file dos <span>criativos validados</span></h1>
-  <div class="sub">Os criativos que realmente venderam o TPE, com os números que cada um fez. Tudo puxado direto da conta de anúncio, nada de exemplo ilustrativo.</div>
-  <div class="stats">
-    <div class="stat"><b>466</b><span>vendas</span></div>
-    <div class="stat"><b>7</b><span>criativos</span></div>
-    <div class="stat"><b>R$ 13,66</b><span>melhor CPA</span></div>
-    <div class="stat"><b>2026</b><span>janeiro a novembro</span></div>
+<div class="wrap">
+  <div class="top">
+    <div class="logo">TPE<i>.</i>swipe</div>
+    <nav><span>Campanhas ON</span><span>Tráfego para Empresários</span></nav>
   </div>
-</div></div>
 
-<div class="tools">
-  <button class="chip on" data-f="Todos">Todos</button>
-  <button class="chip" data-f="Pôster de oferta">Pôster de oferta</button><button class="chip" data-f="UGC nativo">UGC nativo</button><button class="chip" data-f="Vídeo">Vídeo</button>
-  <input id="busca" placeholder="Buscar no swipe file...">
+  <div class="hero">
+    <div>
+      <h1>O acervo inteiro de<br>um produto só.</h1>
+      <p class="lead">24 criativos reais do TPE, do que vendeu 316 vezes ao que nunca saiu da pasta. Cada card mostra o gancho, a mecânica e o que o criativo fez na conta. Clique pra ver a arte inteira.</p>
+    </div>
+    <div class="box">
+      <b>Por que um acervo e não só os vencedores</b>
+      <p>Metade destes nunca recebeu verba. Não foram reprovados, foram engavetados. É aí que mora o teste barato que ninguém fez, e é isso que um swipe file bom entrega.</p>
+      <span class="tagline">11 com venda medida · 13 sem teste</span>
+    </div>
+  </div>
+
+  <div class="secline">
+    <h2>Explore o acervo <em>24 criativos</em></h2>
+    <span class="mostra" id="mostra"></span>
+  </div>
+
+  <div class="tools">
+    <input id="busca" placeholder="Buscar gancho, nicho ou mecânica...">
+    <button class="f on" data-c="Todos">Todos <i>24</i></button>
+    <button class="f" data-c="Oferta">Oferta <i>4</i></button><button class="f" data-c="Comparação">Comparação <i>3</i></button><button class="f" data-c="Tipográfico">Tipográfico <i>4</i></button><button class="f" data-c="UGC">UGC <i>9</i></button><button class="f" data-c="Bastidor">Bastidor <i>4</i></button>
+    <button class="f" data-only="1">Só os que venderam <i>11</i></button>
+  </div>
+
+  <div class="grid" id="grid">
+<article class="card" data-busca="o ímã curso de tráfego pago para empresários · por apenas r$ 37 promessa em caixa alta ocupando metade da arte, preço carimbado em vermelho e uma fila de gente entrando na loja. público frio em escala. é o criativo de maior volume do acervo. oferta" data-categoria="Oferta" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt004.jpg" data-t="O ímã" data-g="CURSO DE TRÁFEGO PAGO PARA EMPRESÁRIOS · POR APENAS R$ 37" data-m="Promessa em caixa alta ocupando metade da arte, preço carimbado em vermelho e uma fila de gente entrando na loja." data-s="<span class=&quot;sel ok&quot;>316 vendas · CPA R$ 17,03</span>" aria-haspopup="dialog" aria-label="Ver criativo O ímã">
+    <img src="img/gpt004.jpg" alt="O ímã" loading="lazy">
+    <span class="num">01</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Oferta</span>
+    <h3>O ímã</h3>
+    <p class="o-que">Promessa em caixa alta ocupando metade da arte, preço carimbado em vermelho e uma fila de gente entrando na loja.</p>
+    <p class="quando"><span>Use pra</span>Público frio em escala. É o criativo de maior volume do acervo.</p>
+    <div class="credito"><span class="sel ok">316 vendas · CPA R$ 17,03</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="boletos voando curso de tráfego pago para empresários mesmo layout do ímã, mas a cena é a dor: empresário no balcão vazio com boletos e impostos voando em volta. trocar o resultado pela dor sem mudar o layout que já funciona. oferta" data-categoria="Oferta" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt001.jpg" data-t="Boletos voando" data-g="CURSO DE TRÁFEGO PAGO PARA EMPRESÁRIOS" data-m="Mesmo layout do ímã, mas a cena é a dor: empresário no balcão vazio com boletos e impostos voando em volta." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Boletos voando">
+    <img src="img/gpt001.jpg" alt="Boletos voando" loading="lazy">
+    <span class="num">02</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Oferta</span>
+    <h3>Boletos voando</h3>
+    <p class="o-que">Mesmo layout do ímã, mas a cena é a dor: empresário no balcão vazio com boletos e impostos voando em volta.</p>
+    <p class="quando"><span>Use pra</span>Trocar o resultado pela dor sem mudar o layout que já funciona.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="garimpo empresário? aprenda a fazer o tráfego pago do seu próprio negócio homem cavando um buraco cheio de moedas douradas. o dinheiro já está ali embaixo, falta saber cavar. ângulo de oportunidade escondida, sem culpar o empresário. oferta" data-categoria="Oferta" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt003.jpg" data-t="Garimpo" data-g="EMPRESÁRIO? APRENDA A FAZER O TRÁFEGO PAGO DO SEU PRÓPRIO NEGÓCIO" data-m="Homem cavando um buraco cheio de moedas douradas. O dinheiro já está ali embaixo, falta saber cavar." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Garimpo">
+    <img src="img/gpt003.jpg" alt="Garimpo" loading="lazy">
+    <span class="num">03</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Oferta</span>
+    <h3>Garimpo</h3>
+    <p class="o-que">Homem cavando um buraco cheio de moedas douradas. O dinheiro já está ali embaixo, falta saber cavar.</p>
+    <p class="quando"><span>Use pra</span>Ângulo de oportunidade escondida, sem culpar o empresário.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="aluga-se curso de tráfego pago para empresários de um lado a loja com placa de aluga-se, do outro a loja cheia. o medo de fechar como gancho. quem já sente queda de movimento e não admite em voz alta. oferta" data-categoria="Oferta" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt005.jpg" data-t="ALUGA-SE" data-g="CURSO DE TRÁFEGO PAGO PARA EMPRESÁRIOS" data-m="De um lado a loja com placa de ALUGA-SE, do outro a loja cheia. O medo de fechar como gancho." data-s="<span class=&quot;sel ok&quot;>8 vendas · CPA R$ 28,83</span>" aria-haspopup="dialog" aria-label="Ver criativo ALUGA-SE">
+    <img src="img/gpt005.jpg" alt="ALUGA-SE" loading="lazy">
+    <span class="num">04</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Oferta</span>
+    <h3>ALUGA-SE</h3>
+    <p class="o-que">De um lado a loja com placa de ALUGA-SE, do outro a loja cheia. O medo de fechar como gancho.</p>
+    <p class="quando"><span>Use pra</span>Quem já sente queda de movimento e não admite em voz alta.</p>
+    <div class="credito"><span class="sel ok">8 vendas · CPA R$ 28,83</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="antes x depois empresário? aprenda a fazer o tráfego pago do seu próprio negócio coluna antes (loja vazia, cansado, vendas baixas) contra depois (loja cheia, whatsapp lotado, faturamento subindo). quem precisa ver a transformação listada item por item. comparação" data-categoria="Comparação" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt002.jpg" data-t="Antes x Depois" data-g="EMPRESÁRIO? APRENDA A FAZER O TRÁFEGO PAGO DO SEU PRÓPRIO NEGÓCIO" data-m="Coluna ANTES (loja vazia, cansado, vendas baixas) contra DEPOIS (loja cheia, WhatsApp lotado, faturamento subindo)." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Antes x Depois">
+    <img src="img/gpt002.jpg" alt="Antes x Depois" loading="lazy">
+    <span class="num">05</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Comparação</span>
+    <h3>Antes x Depois</h3>
+    <p class="o-que">Coluna ANTES (loja vazia, cansado, vendas baixas) contra DEPOIS (loja cheia, WhatsApp lotado, faturamento subindo).</p>
+    <p class="quando"><span>Use pra</span>Quem precisa ver a transformação listada item por item.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="impulsionar ou anunciar impulsionar o post **ou** anunciar de verdade dois retratos lado a lado: o frustrado com o celular na mão e o tranquilo com o painel no notebook. quebrar a crença de que impulsionar post é fazer tráfego. comparação" data-categoria="Comparação" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt009.jpg" data-t="Impulsionar ou anunciar" data-g="IMPULSIONAR O POST **OU** ANUNCIAR DE VERDADE" data-m="Dois retratos lado a lado: o frustrado com o celular na mão e o tranquilo com o painel no notebook." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Impulsionar ou anunciar">
+    <img src="img/gpt009.jpg" alt="Impulsionar ou anunciar" loading="lazy">
+    <span class="num">06</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Comparação</span>
+    <h3>Impulsionar ou anunciar</h3>
+    <p class="o-que">Dois retratos lado a lado: o frustrado com o celular na mão e o tranquilo com o painel no notebook.</p>
+    <p class="quando"><span>Use pra</span>Quebrar a crença de que impulsionar post é fazer tráfego.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="o gerenciador assusta empresário, parece difícil abrir o gerenciador? nuca de alguém encarando o painel cheio de gráfico. a objeção técnica virou a headline. quem já tentou sozinho e desistiu na primeira tela. comparação" data-categoria="Comparação" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt012.jpg" data-t="O gerenciador assusta" data-g="EMPRESÁRIO, PARECE DIFÍCIL ABRIR O GERENCIADOR?" data-m="Nuca de alguém encarando o painel cheio de gráfico. A objeção técnica virou a headline." data-s="<span class=&quot;sel ok&quot;>2 vendas · CPA R$ 36,06</span>" aria-haspopup="dialog" aria-label="Ver criativo O gerenciador assusta">
+    <img src="img/gpt012.jpg" alt="O gerenciador assusta" loading="lazy">
+    <span class="num">07</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Comparação</span>
+    <h3>O gerenciador assusta</h3>
+    <p class="o-que">Nuca de alguém encarando o painel cheio de gráfico. A objeção técnica virou a headline.</p>
+    <p class="quando"><span>Use pra</span>Quem já tentou sozinho e desistiu na primeira tela.</p>
+    <div class="credito"><span class="sel ok">2 vendas · CPA R$ 36,06</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="5 aulas, 2h30 5 aulas. 2 horas e meia. e voce anuncia sozinho. laranja chapado, texto gigante, zero imagem. o esforço vira a oferta: diz exatamente quanto tempo custa. o mais barato de produzir do acervo e o segundo melhor cpa. tipográfico" data-categoria="Tipográfico" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt011.jpg" data-t="5 aulas, 2h30" data-g="5 AULAS. 2 HORAS E MEIA. E VOCE ANUNCIA SOZINHO." data-m="Laranja chapado, texto gigante, zero imagem. O esforço vira a oferta: diz exatamente quanto tempo custa." data-s="<span class=&quot;sel ok&quot;>17 vendas · CPA R$ 14,28</span>" aria-haspopup="dialog" aria-label="Ver criativo 5 aulas, 2h30">
+    <img src="img/gpt011.jpg" alt="5 aulas, 2h30" loading="lazy">
+    <span class="num">08</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Tipográfico</span>
+    <h3>5 aulas, 2h30</h3>
+    <p class="o-que">Laranja chapado, texto gigante, zero imagem. O esforço vira a oferta: diz exatamente quanto tempo custa.</p>
+    <p class="quando"><span>Use pra</span>O mais barato de produzir do acervo e o segundo melhor CPA.</p>
+    <div class="credito"><span class="sel ok">17 vendas · CPA R$ 14,28</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="isso não é sorte às vezes o anúncio dá certo. às vezes não. isso não é sorte. fundo verde escuro, remate laranja sublinhado à mão. fala com quem já anuncia e tem resultado instável. o segundo avatar: 55% dos alunos já anunciavam antes de comprar. tipográfico" data-categoria="Tipográfico" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt014.jpg" data-t="Isso não é sorte" data-g="ÀS VEZES O ANÚNCIO DÁ CERTO. ÀS VEZES NÃO. ISSO NÃO É SORTE." data-m="Fundo verde escuro, remate laranja sublinhado à mão. Fala com quem já anuncia e tem resultado instável." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Isso não é sorte">
+    <img src="img/gpt014.jpg" alt="Isso não é sorte" loading="lazy">
+    <span class="num">09</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Tipográfico</span>
+    <h3>Isso não é sorte</h3>
+    <p class="o-que">Fundo verde escuro, remate laranja sublinhado à mão. Fala com quem já anuncia e tem resultado instável.</p>
+    <p class="quando"><span>Use pra</span>O segundo avatar: 55% dos alunos já anunciavam antes de comprar.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="preço protagonista aprenda a anunciar o seu negócio você mesmo · curso completo por r$ 67 laranja chapado com o preço em caixa branca no centro. o número é o maior elemento da peça. quando a oferta é o argumento e a dor já é conhecida. tipográfico" data-categoria="Tipográfico" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt015.jpg" data-t="Preço protagonista" data-g="APRENDA A ANUNCIAR O SEU NEGÓCIO VOCÊ MESMO · CURSO COMPLETO POR R$ 67" data-m="Laranja chapado com o preço em caixa branca no centro. O número é o maior elemento da peça." data-s="<span class=&quot;sel ok&quot;>4 vendas · CPA R$ 78,73</span>" aria-haspopup="dialog" aria-label="Ver criativo Preço protagonista">
+    <img src="img/gpt015.jpg" alt="Preço protagonista" loading="lazy">
+    <span class="num">10</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Tipográfico</span>
+    <h3>Preço protagonista</h3>
+    <p class="o-que">Laranja chapado com o preço em caixa branca no centro. O número é o maior elemento da peça.</p>
+    <p class="quando"><span>Use pra</span>Quando a oferta é o argumento e a dor já é conhecida.</p>
+    <div class="credito"><span class="sel ok">4 vendas · CPA R$ 78,73</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="vive de indicação voce ja anuncia e ainda vive de indicacao. tem algo errado. papel amassado fotografado, texto preto, selo laranja de preço no canto. parece bilhete, não anúncio. acusação suave pra quem acha que está tudo bem. tipográfico" data-categoria="Tipográfico" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt016.jpg" data-t="Vive de indicação" data-g="VOCE JA ANUNCIA E AINDA VIVE DE INDICACAO. TEM ALGO ERRADO." data-m="Papel amassado fotografado, texto preto, selo laranja de preço no canto. Parece bilhete, não anúncio." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Vive de indicação">
+    <img src="img/gpt016.jpg" alt="Vive de indicação" loading="lazy">
+    <span class="num">11</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Tipográfico</span>
+    <h3>Vive de indicação</h3>
+    <p class="o-que">Papel amassado fotografado, texto preto, selo laranja de preço no canto. Parece bilhete, não anúncio.</p>
+    <p class="quando"><span>Use pra</span>Acusação suave pra quem acha que está tudo bem.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="lojista · eu mesma faço eu mesma faco o tráfego pago da minha loja agora selfie da dona dentro da própria loja, legenda queimada em 3 linhas com destaque laranja na do meio. o melhor cpa de todo o acervo. par falando com par. ugc" data-categoria="UGC" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt010-1.jpg" data-t="Lojista · eu mesma faço" data-g="EU MESMA FACO O TRÁFEGO PAGO DA MINHA LOJA AGORA" data-m="Selfie da dona dentro da própria loja, legenda queimada em 3 linhas com destaque laranja na do meio." data-s="<span class=&quot;sel ok&quot;>12 vendas · CPA R$ 12,09</span>" aria-haspopup="dialog" aria-label="Ver criativo Lojista · eu mesma faço">
+    <img src="img/gpt010-1.jpg" alt="Lojista · eu mesma faço" loading="lazy">
+    <span class="num">12</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">UGC</span>
+    <h3>Lojista · eu mesma faço</h3>
+    <p class="o-que">Selfie da dona dentro da própria loja, legenda queimada em 3 linhas com destaque laranja na do meio.</p>
+    <p class="quando"><span>Use pra</span>O melhor CPA de todo o acervo. Par falando com par.</p>
+    <div class="credito"><span class="sel ok">12 vendas · CPA R$ 12,09</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="lojista · variação eu mesma faco os anuncios da minha loja agora mesma dona, outra loja, mesma estrutura de legenda. só o cenário e uma palavra mudaram. multiplicar um ugc vencedor trocando um eixo por vez. ugc" data-categoria="UGC" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt010-2.jpg" data-t="Lojista · variação" data-g="EU MESMA FACO OS ANUNCIOS DA MINHA LOJA AGORA" data-m="Mesma dona, outra loja, mesma estrutura de legenda. Só o cenário e uma palavra mudaram." data-s="<span class=&quot;sel ok&quot;>12 vendas · CPA R$ 14,08</span>" aria-haspopup="dialog" aria-label="Ver criativo Lojista · variação">
+    <img src="img/gpt010-2.jpg" alt="Lojista · variação" loading="lazy">
+    <span class="num">13</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">UGC</span>
+    <h3>Lojista · variação</h3>
+    <p class="o-que">Mesma dona, outra loja, mesma estrutura de legenda. Só o cenário e uma palavra mudaram.</p>
+    <p class="quando"><span>Use pra</span>Multiplicar um UGC vencedor trocando um eixo por vez.</p>
+    <div class="credito"><span class="sel ok">12 vendas · CPA R$ 14,08</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="mecânico · 900 por mês eu pagava 900 reais por mes pra agencia. hoje eu mesmo faco os anuncios da minha loja. selfie na oficina com carro de capô aberto ao fundo. o número 900 ancora o preço sem precisar argumentar. quem já paga agência e desconfia que está caro. ugc" data-categoria="UGC" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt013-1.jpg" data-t="Mecânico · 900 por mês" data-g="EU PAGAVA 900 REAIS POR MES PRA AGENCIA. HOJE EU MESMO FACO OS ANUNCIOS DA MINHA LOJA." data-m="Selfie na oficina com carro de capô aberto ao fundo. O número 900 ancora o preço sem precisar argumentar." data-s="<span class=&quot;sel ok&quot;>4 vendas · CPA R$ 73,48</span>" aria-haspopup="dialog" aria-label="Ver criativo Mecânico · 900 por mês">
+    <img src="img/gpt013-1.jpg" alt="Mecânico · 900 por mês" loading="lazy">
+    <span class="num">14</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">UGC</span>
+    <h3>Mecânico · 900 por mês</h3>
+    <p class="o-que">Selfie na oficina com carro de capô aberto ao fundo. O número 900 ancora o preço sem precisar argumentar.</p>
+    <p class="quando"><span>Use pra</span>Quem já paga agência e desconfia que está caro.</p>
+    <div class="credito"><span class="sel ok">4 vendas · CPA R$ 73,48</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="mecânico · mês sim, mês não meu anuncio um mês dava certo e no outro nao dava nada. ate eu entender o porque. outro mecânico, outro ângulo: o problema não é não anunciar, é a inconstância. fala com quem já anuncia. nunca recebeu verba. ugc" data-categoria="UGC" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt017.jpg" data-t="Mecânico · mês sim, mês não" data-g="MEU ANUNCIO UM MÊS DAVA CERTO E NO OUTRO NAO DAVA NADA. ATE EU ENTENDER O PORQUE." data-m="Outro mecânico, outro ângulo: o problema não é não anunciar, é a inconstância." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Mecânico · mês sim, mês não">
+    <img src="img/gpt017.jpg" alt="Mecânico · mês sim, mês não" loading="lazy">
+    <span class="num">15</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">UGC</span>
+    <h3>Mecânico · mês sim, mês não</h3>
+    <p class="o-que">Outro mecânico, outro ângulo: o problema não é não anunciar, é a inconstância.</p>
+    <p class="quando"><span>Use pra</span>Fala com quem já anuncia. Nunca recebeu verba.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="cabeleireira · indicação meu salao so enchia quando alguem indicava. hoje eu trago cliente quando eu quero. selfie no salão. troca o nicho e o cenário, mantém a estrutura de legenda em 3 linhas. beleza e serviço local. rodou r$ 89 e não vendeu. ugc" data-categoria="UGC" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt018.jpg" data-t="Cabeleireira · indicação" data-g="MEU SALAO SO ENCHIA QUANDO ALGUEM INDICAVA. HOJE EU TRAGO CLIENTE QUANDO EU QUERO." data-m="Selfie no salão. Troca o nicho e o cenário, mantém a estrutura de legenda em 3 linhas." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Cabeleireira · indicação">
+    <img src="img/gpt018.jpg" alt="Cabeleireira · indicação" loading="lazy">
+    <span class="num">16</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">UGC</span>
+    <h3>Cabeleireira · indicação</h3>
+    <p class="o-que">Selfie no salão. Troca o nicho e o cenário, mantém a estrutura de legenda em 3 linhas.</p>
+    <p class="quando"><span>Use pra</span>Beleza e serviço local. Rodou R$ 89 e não vendeu.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="esteticista · gestor caro eu pagava um gestor caro todo mês e continuava sem saber se estava dando certo. jaleco branco, sala de estética. a dor aqui é falta de controle, não preço. clínica e estética. ângulo de transparência. ugc" data-categoria="UGC" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt019.jpg" data-t="Esteticista · gestor caro" data-g="EU PAGAVA UM GESTOR CARO TODO MÊS E CONTINUAVA SEM SABER SE ESTAVA DANDO CERTO." data-m="Jaleco branco, sala de estética. A dor aqui é falta de controle, não preço." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Esteticista · gestor caro">
+    <img src="img/gpt019.jpg" alt="Esteticista · gestor caro" loading="lazy">
+    <span class="num">17</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">UGC</span>
+    <h3>Esteticista · gestor caro</h3>
+    <p class="o-que">Jaleco branco, sala de estética. A dor aqui é falta de controle, não preço.</p>
+    <p class="quando"><span>Use pra</span>Clínica e estética. Ângulo de transparência.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="loja dentro do prédio minha loja fica dentro de um predio. ninguem passava na porta, entao eu fui ate eles. frase literal de aluno virando criativo. o problema é geográfico e a solução aparece na mesma linha. negócio sem vitrine de rua: sala, andar, galeria. ugc" data-categoria="UGC" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt020.jpg" data-t="Loja dentro do prédio" data-g="MINHA LOJA FICA DENTRO DE UM PREDIO. NINGUEM PASSAVA NA PORTA, ENTAO EU FUI ATE ELES." data-m="Frase literal de aluno virando criativo. O problema é geográfico e a solução aparece na mesma linha." data-s="<span class=&quot;sel ok&quot;>1 vendas · CPA R$ 99,42</span>" aria-haspopup="dialog" aria-label="Ver criativo Loja dentro do prédio">
+    <img src="img/gpt020.jpg" alt="Loja dentro do prédio" loading="lazy">
+    <span class="num">18</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">UGC</span>
+    <h3>Loja dentro do prédio</h3>
+    <p class="o-que">Frase literal de aluno virando criativo. O problema é geográfico e a solução aparece na mesma linha.</p>
+    <p class="quando"><span>Use pra</span>Negócio sem vitrine de rua: sala, andar, galeria.</p>
+    <div class="credito"><span class="sel ok">1 vendas · CPA R$ 99,42</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="pizzaria · sábado vazio sabado a noite com a loja vazia foi o que me fez aprender a anunciar. casal dono da pizzaria, forno ao fundo. o gancho é um momento específico, não uma condição permanente. food service. ângulo de momento, o mais difícil de copiar. ugc" data-categoria="UGC" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt021.jpg" data-t="Pizzaria · sábado vazio" data-g="SABADO A NOITE COM A LOJA VAZIA FOI O QUE ME FEZ APRENDER A ANUNCIAR." data-m="Casal dono da pizzaria, forno ao fundo. O gancho é um momento específico, não uma condição permanente." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Pizzaria · sábado vazio">
+    <img src="img/gpt021.jpg" alt="Pizzaria · sábado vazio" loading="lazy">
+    <span class="num">19</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">UGC</span>
+    <h3>Pizzaria · sábado vazio</h3>
+    <p class="o-que">Casal dono da pizzaria, forno ao fundo. O gancho é um momento específico, não uma condição permanente.</p>
+    <p class="quando"><span>Use pra</span>Food service. Ângulo de momento, o mais difícil de copiar.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="caixinha de pergunta quanto eu preciso investir pra fazer o tráfego da minha loja? · menos do que voce gasta errando sozinho formato stories com o balão de pergunta por cima da selfie no mercadinho. a objeção vem da boca do público. remarketing e quem já conhece a marca. ugc" data-categoria="UGC" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt007q.jpg" data-t="Caixinha de pergunta" data-g="QUANTO EU PRECISO INVESTIR PRA FAZER O TRÁFEGO DA MINHA LOJA? · MENOS DO QUE VOCE GASTA ERRANDO SOZINHO" data-m="Formato stories com o balão de pergunta por cima da selfie no mercadinho. A objeção vem da boca do público." data-s="<span class=&quot;sel ok&quot;>2 vendas · CPA R$ 38,48</span>" aria-haspopup="dialog" aria-label="Ver criativo Caixinha de pergunta">
+    <img src="img/gpt007q.jpg" alt="Caixinha de pergunta" loading="lazy">
+    <span class="num">20</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">UGC</span>
+    <h3>Caixinha de pergunta</h3>
+    <p class="o-que">Formato stories com o balão de pergunta por cima da selfie no mercadinho. A objeção vem da boca do público.</p>
+    <p class="quando"><span>Use pra</span>Remarketing e quem já conhece a marca.</p>
+    <div class="credito"><span class="sel ok">2 vendas · CPA R$ 38,48</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="bloco · 5 erros 5 erros que queimam seu dinheiro no tráfego pago caderno pautado na mesa, lista manuscrita com os dois últimos itens borrados e post-it laranja com o preço. parece conteúdo salvo, não anúncio. terceiro melhor cpa. bastidor" data-categoria="Bastidor" data-st="ok">
+  <button class="preview" type="button" data-img="img/gpt008.jpg" data-t="Bloco · 5 erros" data-g="5 ERROS QUE QUEIMAM SEU DINHEIRO NO TRÁFEGO PAGO" data-m="Caderno pautado na mesa, lista manuscrita com os dois últimos itens borrados e post-it laranja com o preço." data-s="<span class=&quot;sel ok&quot;>10 vendas · CPA R$ 14,58</span>" aria-haspopup="dialog" aria-label="Ver criativo Bloco · 5 erros">
+    <img src="img/gpt008.jpg" alt="Bloco · 5 erros" loading="lazy">
+    <span class="num">21</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Bastidor</span>
+    <h3>Bloco · 5 erros</h3>
+    <p class="o-que">Caderno pautado na mesa, lista manuscrita com os dois últimos itens borrados e post-it laranja com o preço.</p>
+    <p class="quando"><span>Use pra</span>Parece conteúdo salvo, não anúncio. Terceiro melhor CPA.</p>
+    <div class="credito"><span class="sel ok">10 vendas · CPA R$ 14,58</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="caderno · pra onde foi o dinheiro pra onde foi meu dinheiro de anuncio caderno com calculadora do lado e a conta escrita à mão: gastei r$ 500, clientes que vieram: 10. faz o empresário fazer a conta junto, em vez de ouvir a sua. bastidor" data-categoria="Bastidor" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt022.jpg" data-t="Caderno · pra onde foi o dinheiro" data-g="PRA ONDE FOI MEU DINHEIRO DE ANUNCIO" data-m="Caderno com calculadora do lado e a conta escrita à mão: gastei R$ 500, clientes que vieram: 10." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Caderno · pra onde foi o dinheiro">
+    <img src="img/gpt022.jpg" alt="Caderno · pra onde foi o dinheiro" loading="lazy">
+    <span class="num">22</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Bastidor</span>
+    <h3>Caderno · pra onde foi o dinheiro</h3>
+    <p class="o-que">Caderno com calculadora do lado e a conta escrita à mão: gastei R$ 500, clientes que vieram: 10.</p>
+    <p class="quando"><span>Use pra</span>Faz o empresário fazer a conta junto, em vez de ouvir a sua.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="post-its na parede o que eu mudei pra começar a vender parede com post-its amarelos, os dois últimos tapados pelo cartão laranja que manda pro curso. curiosidade por omissão: o que falta é exatamente o produto. bastidor" data-categoria="Bastidor" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt023.jpg" data-t="Post-its na parede" data-g="O QUE EU MUDEI PRA COMEÇAR A VENDER" data-m="Parede com post-its amarelos, os dois últimos tapados pelo cartão laranja que manda pro curso." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Post-its na parede">
+    <img src="img/gpt023.jpg" alt="Post-its na parede" loading="lazy">
+    <span class="num">23</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Bastidor</span>
+    <h3>Post-its na parede</h3>
+    <p class="o-que">Parede com post-its amarelos, os dois últimos tapados pelo cartão laranja que manda pro curso.</p>
+    <p class="quando"><span>Use pra</span>Curiosidade por omissão: o que falta é exatamente o produto.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article>
+<article class="card" data-busca="guardanapo por que o concorrente aparece mais que eu guardanapo de bar com a chave do carro ao lado, três linhas à caneta e duas borradas. o criativo mais barato possível: papel, caneta e celular. bastidor" data-categoria="Bastidor" data-st="no">
+  <button class="preview" type="button" data-img="img/gpt024.jpg" data-t="Guardanapo" data-g="POR QUE O CONCORRENTE APARECE MAIS QUE EU" data-m="Guardanapo de bar com a chave do carro ao lado, três linhas à caneta e duas borradas." data-s="<span class=&quot;sel no&quot;>nunca recebeu verba</span>" aria-haspopup="dialog" aria-label="Ver criativo Guardanapo">
+    <img src="img/gpt024.jpg" alt="Guardanapo" loading="lazy">
+    <span class="num">24</span>
+    <span class="ver">Ver criativo</span>
+    <span class="plat">Meta Ads</span>
+  </button>
+  <div class="card-body">
+    <span class="category">Bastidor</span>
+    <h3>Guardanapo</h3>
+    <p class="o-que">Guardanapo de bar com a chave do carro ao lado, três linhas à caneta e duas borradas.</p>
+    <p class="quando"><span>Use pra</span>O criativo mais barato possível: papel, caneta e celular.</p>
+    <div class="credito"><span class="sel no">nunca recebeu verba</span><a class="original" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener" aria-label="Abrir biblioteca de anúncios"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</article></div>
+
+  <div class="apren">
+    <h2>O que o acervo inteiro ensina</h2>
+    <ul>
+      <li><b>O preço entra na arte</b><p>Em todos os que venderam o valor está dentro da imagem, não no texto do anúncio. Quem não quer pagar aquilo não clica.</p></li>
+      <li><b>O mais barato é o segundo melhor</b><p>O tipográfico laranja não tem foto, não tem IA, não tem produção. Fez CPA de R$ 14,28.</p></li>
+      <li><b>UGC ganha no CPA, pôster ganha no volume</b><p>A selfie da lojista fez R$ 12,09 contra R$ 17,03 do melhor pôster, mas o pôster escalou 26x mais verba.</p></li>
+      <li><b>Troque um eixo por vez</b><p>As selfies mudam só o nicho e o cenário, mantendo a legenda em 3 linhas. É assim que vira série em vez de aposta.</p></li>
+      <li><b>Papel e caneta competem com IA</b><p>O bloco dos “5 erros” fez R$ 14,58 e custou uma folha, uma caneta e a câmera do celular.</p></li>
+      <li><b>Metade nunca foi testada</b><p>12 dos 24 nunca tiveram venda registrada. O acervo vale mais pelo que não rodou do que pelo que rodou.</p></li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    Dados lidos nas contas de anúncio do TPE em 26/11/2026, janela de 01/01 a 26/11/2026. CPA é o custo por compra do Gerenciador.<br>
+    Os criativos rodaram como dark post, então não existe post público no Instagram pra cada um. A seta de cada card abre a Biblioteca de Anúncios da página.
+  </div>
 </div>
-<div class="count" id="count"></div>
 
-<div class="grid" id="grid">
-
-<article class="card" data-cat="Pôster de oferta" data-q="pôster do ímã · r$ 37 headline gigante em amarelo sobre cena escura, preço carimbado em vermelho e uma fila de gente entrando na loja. público frio, oferta de entrada com preço baixo e explícito.">
-  <div class="card-media"><a class="thumb" href="gpt004.jpg" target="_blank" rel="noopener"><img src="gpt004.jpg" alt="Pôster do ímã · R$ 37" loading="lazy"></a></div>
-  <div class="card-body">
-    <div class="card-top"><span class="num">01</span><span class="cat">Pôster de oferta</span><span class="badge" style="background:#F16722">CAMPEÃO</span></div>
-    <h3>Pôster do ímã · R$ 37</h3>
-    <p class="desc">Headline gigante em amarelo sobre cena escura, preço carimbado em vermelho e uma fila de gente entrando na loja.</p>
-    <div class="block"><span class="lbl">Use pra</span><p>Público frio, oferta de entrada com preço baixo e explícito.</p></div>
-    <div class="block"><span class="lbl">Por que funcionou</span><p>É o criativo que sustentou a conta inteira. Nada é sutil: a promessa está em caixa alta ocupando metade da tela, o preço é o segundo maior elemento e a cena mostra o resultado (gente entrando) em vez do produto.</p></div>
-    <div class="block"><span class="lbl">Como rodou · 316 vendas</span>
-      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>LP</td><td>R$ 5.391,55</td><td><b>156</b></td><td class="cpa">R$ 34,56</td></tr><tr><td>LP · outra leva</td><td>R$ 1.668,65</td><td><b>72</b></td><td class="cpa">R$ 23,18</td></tr><tr><td>LP · outra leva</td><td>R$ 987,64</td><td><b>58</b></td><td class="cpa">R$ 17,03</td></tr><tr><td>MEME</td><td>R$ 1.069,65</td><td><b>24</b></td><td class="cpa">R$ 44,57</td></tr><tr><td>QUIZ</td><td>R$ 315,53</td><td><b>6</b></td><td class="cpa">R$ 52,59</td></tr></tbody></table>
+<div class="md" id="md" role="dialog" aria-modal="true">
+  <button class="md-x" id="mdx" aria-label="Fechar">×</button>
+  <div class="md-in" id="mdin">
+    <img id="mdimg" src="" alt="">
+    <div class="md-tx">
+      <h3 id="mdt"></h3>
+      <div class="gan" id="mdg"></div>
+      <p id="mdm"></p>
+      <p id="mds"></p>
+      <a class="tagline" style="align-self:flex-start;text-decoration:none" href="https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=BR&view_all_page_id=850222121499386&search_type=page&media_type=all" target="_blank" rel="noopener">Abrir Biblioteca de Anúncios ↗</a>
     </div>
   </div>
-</article>
-<article class="card" data-cat="Pôster de oferta" data-q="pôster do ímã · r$ 67 mesma arte, só o número do preço trocado. testar elasticidade de preço sem jogar fora o criativo que já ganhou.">
-  <div class="card-media"><a class="thumb" href="005r67.jpg" target="_blank" rel="noopener"><img src="005r67.jpg" alt="Pôster do ímã · R$ 67" loading="lazy"></a></div>
-  <div class="card-body">
-    <div class="card-top"><span class="num">02</span><span class="cat">Pôster de oferta</span></div>
-    <h3>Pôster do ímã · R$ 67</h3>
-    <p class="desc">Mesma arte, só o número do preço trocado.</p>
-    <div class="block"><span class="lbl">Use pra</span><p>Testar elasticidade de preço sem jogar fora o criativo que já ganhou.</p></div>
-    <div class="block"><span class="lbl">Por que funcionou</span><p>Prova que o que validou foi a arte, não o preço. Trocar só o número manteve o CPA saudável e economizou uma rodada inteira de produção.</p></div>
-    <div class="block"><span class="lbl">Como rodou · 8 vendas</span>
-      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>LP</td><td>R$ 230,62</td><td><b>8</b></td><td class="cpa">R$ 28,83</td></tr></tbody></table>
-    </div>
-  </div>
-</article>
-<article class="card" data-cat="Pôster de oferta" data-q="pôster do ímã · r$ 97 a mesma arte de novo, agora com r$ 97. mostrar até onde um criativo vencedor aguenta subida de preço.">
-  <div class="card-media"><a class="thumb" href="n21.jpg" target="_blank" rel="noopener"><img src="n21.jpg" alt="Pôster do ímã · R$ 97" loading="lazy"></a></div>
-  <div class="card-body">
-    <div class="card-top"><span class="num">03</span><span class="cat">Pôster de oferta</span><span class="badge" style="background:#C2410C">LIMITE</span></div>
-    <h3>Pôster do ímã · R$ 97</h3>
-    <p class="desc">A mesma arte de novo, agora com R$ 97.</p>
-    <div class="block"><span class="lbl">Use pra</span><p>Mostrar até onde um criativo vencedor aguenta subida de preço.</p></div>
-    <div class="block"><span class="lbl">Por que funcionou</span><p>O mesmo criativo que vendia a R$ 17 passou a vender a R$ 140. A arte continuou atraindo o clique e o preço parou a venda. É o limite da peça, não o fim dela.</p></div>
-    <div class="block"><span class="lbl">Como rodou · 48 vendas</span>
-      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>LP</td><td>R$ 4.346,48</td><td><b>31</b></td><td class="cpa">R$ 140,21</td></tr><tr><td>LP</td><td>R$ 826,16</td><td><b>10</b></td><td class="cpa">R$ 82,62</td></tr><tr><td>QUIZ</td><td>R$ 273,51</td><td><b>3</b></td><td class="cpa">R$ 91,17</td></tr><tr><td>LP · relançada</td><td>R$ 217,06</td><td><b>4</b></td><td class="cpa">R$ 54,27</td></tr></tbody></table>
-    </div>
-  </div>
-</article>
-<article class="card" data-cat="UGC nativo" data-q="selfie da oficina · "eu pagava 900 por mês" dono de oficina mecânica, selfie no celular dentro do próprio negócio, legenda queimada em 4 linhas. quebrar a objeção de quem já paga agência e acha que não dá conta sozinho.">
-  <div class="card-media"><a class="thumb" href="021.jpg" target="_blank" rel="noopener"><img src="021.jpg" alt="Selfie da oficina · "eu pagava 900 por mês"" loading="lazy"></a></div>
-  <div class="card-body">
-    <div class="card-top"><span class="num">04</span><span class="cat">UGC nativo</span></div>
-    <h3>Selfie da oficina · "eu pagava 900 por mês"</h3>
-    <p class="desc">Dono de oficina mecânica, selfie no celular dentro do próprio negócio, legenda queimada em 4 linhas.</p>
-    <div class="block"><span class="lbl">Use pra</span><p>Quebrar a objeção de quem já paga agência e acha que não dá conta sozinho.</p></div>
-    <div class="block"><span class="lbl">Por que funcionou</span><p>Fala de par pra par. O cenário é bagunçado de verdade (ferramenta na parede, carro com o capô aberto) e por isso não parece anúncio. O número 900 ancora o preço de R$ 37 sem precisar argumentar.</p></div>
-    <div class="block"><span class="lbl">Como rodou · 4 vendas</span>
-      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>QUIZ</td><td>R$ 293,91</td><td><b>4</b></td><td class="cpa">R$ 73,48</td></tr></tbody></table>
-    </div>
-  </div>
-</article>
-<article class="card" data-cat="Vídeo" data-q="vídeo 1min13 · criativo 07 vídeo vertical de 73 segundos rodando como reel. escalar depois que o pôster satura o público frio.">
-  <div class="card-media"><a class="thumb small" href="vid-c10.jpg" target="_blank" rel="noopener"><img src="vid-c10.jpg" alt="Vídeo 1min13 · Criativo 07" loading="lazy"></a></div>
-  <div class="card-body">
-    <div class="card-top"><span class="num">05</span><span class="cat">Vídeo</span></div>
-    <h3>Vídeo 1min13 · Criativo 07</h3>
-    <p class="desc">Vídeo vertical de 73 segundos rodando como reel.</p>
-    <div class="block"><span class="lbl">Use pra</span><p>Escalar depois que o pôster satura o público frio.</p></div>
-    <div class="block"><span class="lbl">Por que funcionou</span><p>É o vídeo que mais rodou verba na conta e seguiu entregando venda. Vídeo satura mais devagar que imagem, então ele segura a campanha quando o pôster começa a cansar.</p></div>
-    <div class="block"><span class="lbl">Como rodou · 26 vendas</span>
-      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>BIDCAP</td><td>R$ 1.933,39</td><td><b>23</b></td><td class="cpa">R$ 84,06</td></tr><tr><td>COST-OBJ</td><td>R$ 512,54</td><td><b>3</b></td><td class="cpa">R$ 170,85</td></tr></tbody></table>
-    </div>
-  </div>
-</article>
-<article class="card" data-cat="Vídeo" data-q="vídeo 55s · caixinha vídeo vertical de 55 segundos, formato caixinha de pergunta. responder uma objeção específica usando a voz do próprio cliente.">
-  <div class="card-media"><a class="thumb small" href="vid-caixinha.jpg" target="_blank" rel="noopener"><img src="vid-caixinha.jpg" alt="Vídeo 55s · caixinha" loading="lazy"></a></div>
-  <div class="card-body">
-    <div class="card-top"><span class="num">06</span><span class="cat">Vídeo</span></div>
-    <h3>Vídeo 55s · caixinha</h3>
-    <p class="desc">Vídeo vertical de 55 segundos, formato caixinha de pergunta.</p>
-    <div class="block"><span class="lbl">Use pra</span><p>Responder uma objeção específica usando a voz do próprio cliente.</p></div>
-    <div class="block"><span class="lbl">Por que funcionou</span><p>Formato de resposta a pergunta funciona porque entrega a objeção já mastigada. CPA abaixo do pôster na mesma janela.</p></div>
-    <div class="block"><span class="lbl">Como rodou · 5 vendas</span>
-      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>QUIZ</td><td>R$ 285,32</td><td><b>5</b></td><td class="cpa">R$ 57,06</td></tr></tbody></table>
-    </div>
-  </div>
-</article>
-<article class="card" data-cat="Vídeo" data-q="vídeo "07" · o melhor cpa da conta vídeo da leva de agosto. o arquivo não é mais recuperável pela api da meta, só os números. referência de teto: é o cpa mais baixo que a conta já produziu.">
-  <div class="card-media"><div class="thumb noimg"><span>arquivo<br>indisponível</span></div></div>
-  <div class="card-body">
-    <div class="card-top"><span class="num">07</span><span class="cat">Vídeo</span><span class="badge" style="background:#73A093">MELHOR CPA</span></div>
-    <h3>Vídeo "07" · o melhor CPA da conta</h3>
-    <p class="desc">Vídeo da leva de agosto. O arquivo não é mais recuperável pela API da Meta, só os números.</p>
-    <div class="block"><span class="lbl">Use pra</span><p>Referência de teto: é o CPA mais baixo que a conta já produziu.</p></div>
-    <div class="block"><span class="lbl">Por que funcionou</span><p>R$ 13,66 por venda com 59 vendas em R$ 805 de verba. É o número que define o que é possível neste produto quando criativo, oferta e preço estão alinhados.</p></div>
-    <div class="block"><span class="lbl">Como rodou · 59 vendas</span>
-      <table><thead><tr><th>Página</th><th>Verba</th><th>Vendas</th><th>CPA</th></tr></thead><tbody><tr><td>LP</td><td>R$ 805,76</td><td><b>59</b></td><td class="cpa">R$ 13,66</td></tr></tbody></table>
-    </div>
-  </div>
-</article>
-</div>
-
-<div class="dna">
-  <div class="dna-box">
-    <h2>O que se repete nos que venderam</h2>
-    <ol>
-      <li><b>A promessa é o maior elemento da tela.</b> Em todos os pôsteres a headline ocupa metade da arte. Nenhum vencedor é discreto.</li>
-      <li><b>O preço aparece na arte.</b> Não no texto do anúncio, na imagem. Quem não quer pagar aquele valor nem clica, e o clique que sobra é barato.</li>
-      <li><b>A cena mostra o resultado, não o produto.</b> Fila de gente entrando na loja, não print de aula nem mockup de curso.</li>
-      <li><b>Uma arte vencedora se reaproveita trocando um elemento só.</b> O mesmo pôster rodou a R$ 37, R$ 67 e R$ 97 mudando apenas o número.</li>
-      <li><b>O UGC compra o que o pôster não compra.</b> O pôster pega quem não conhece. A selfie no meio da bagunça real quebra a objeção de quem já paga agência.</li>
-      <li><b>Vídeo satura mais devagar.</b> O pôster escala rápido e cansa; o vídeo segura a campanha depois disso.</li>
-    </ol>
-  </div>
-</div>
-
-<div class="foot">
-  Dados lidos na conta de anúncio em 26/11/2026, janela de 01/01 a 26/11/2026. CPA é o custo por compra apurado pelo Gerenciador de Anúncios.<br>
-  Os dois vídeos aparecem como miniatura porque a API da Meta não libera o download do arquivo original.
 </div>
 
 <script>
-  var cards=[].slice.call(document.querySelectorAll('.card'));
-  var chips=[].slice.call(document.querySelectorAll('.chip'));
-  var busca=document.getElementById('busca');
-  var count=document.getElementById('count');
-  var filtro='Todos';
-  function render(){
-    var q=busca.value.trim().toLowerCase();
-    var n=0;
-    cards.forEach(function(c){
-      var okCat = filtro==='Todos' || c.dataset.cat===filtro;
-      var okQ = !q || c.dataset.q.indexOf(q)>-1;
-      var show = okCat && okQ;
-      c.style.display = show ? '' : 'none';
-      if(show) n++;
-    });
-    count.textContent='Mostrando '+n+' de '+cards.length+' criativos';
-  }
-  chips.forEach(function(ch){
-    ch.addEventListener('click',function(){
-      chips.forEach(function(x){x.classList.remove('on')});
-      ch.classList.add('on'); filtro=ch.dataset.f; render();
-    });
+var cards=[].slice.call(document.querySelectorAll('.card'));
+var fs=[].slice.call(document.querySelectorAll('.f'));
+var busca=document.getElementById('busca'), mostra=document.getElementById('mostra');
+var cat='Todos', only=false;
+function render(){
+  var q=busca.value.trim().toLowerCase(), n=0;
+  cards.forEach(function(c){
+    var a = cat==='Todos' || c.dataset.categoria===cat;
+    var b = !only || c.dataset.st==='ok';
+    var d = !q || c.dataset.busca.indexOf(q)>-1;
+    var s=a&&b&&d; c.style.display=s?'':'none'; if(s)n++;
   });
-  busca.addEventListener('input',render);
-  render();
+  mostra.textContent='Mostrando '+n+' de '+cards.length+' criativos';
+}
+fs.forEach(function(b){
+  b.addEventListener('click',function(){
+    if(b.dataset.only){ only=!only; b.classList.toggle('on',only); }
+    else { fs.forEach(function(x){ if(!x.dataset.only) x.classList.remove('on'); }); b.classList.add('on'); cat=b.dataset.c; }
+    render();
+  });
+});
+busca.addEventListener('input',render);
+var md=document.getElementById('md');
+document.querySelectorAll('.preview').forEach(function(p){
+  p.addEventListener('click',function(){
+    document.getElementById('mdimg').src=p.dataset.img;
+    document.getElementById('mdt').textContent=p.dataset.t;
+    document.getElementById('mdg').textContent='“'+p.dataset.g+'”';
+    document.getElementById('mdm').textContent=p.dataset.m;
+    document.getElementById('mds').innerHTML=p.dataset.s;
+    md.classList.add('on'); document.body.style.overflow='hidden';
+  });
+});
+function close(){ md.classList.remove('on'); document.body.style.overflow=''; }
+md.addEventListener('click',function(e){ if(e.target===md) close(); });
+document.getElementById('mdx').addEventListener('click',close);
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+render();
 </script>
 </body>
 </html>
